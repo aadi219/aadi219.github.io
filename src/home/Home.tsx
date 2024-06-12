@@ -4,9 +4,11 @@ import Main from './components/Main'
 
 const Home = () : ReactElement => {
   return (
-    <div>
+    <div className='w-screen h-screen bg-bg-dark'>
         <Navbar />
-        <Main />
+        <div className='px-6'>
+          <Main />  
+        </div>
     </div>
   )
 }
