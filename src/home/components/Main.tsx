@@ -1,6 +1,10 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState } from 'react'
 import SubNav from './SubNav.tsx'
 import Section from './Section.tsx'
+import ProgressBar from './ProgressBar.tsx'
+import AccordionCustom from './AccordionCustom.tsx'
+import {skills} from "/src/data/skills.json";
+
 export const LeftPane = ({children} : {children: ReactElement[]}) => {
   return (
     <div className='flex flex-col pane gap-3 w-[55%] pl-24'>
@@ -11,15 +15,18 @@ export const LeftPane = ({children} : {children: ReactElement[]}) => {
 
 export const RightPane = ({children} : {children: ReactElement[]}) => {
   return (
-    <div className='flex flex-col pane gap-3 w-[45%] pr-10'>
+    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-scroll'>
       {...children}
     </div>
   )
 }
 
 const Main = () : ReactElement => {
+  
+  let {languages} = skills;
+  
   return (
-    <div className={'border-2 border-teal-200 p-4 home-main flex gap-0'} style={{height: '650px'}}>
+    <div className={'border-2 border-teal-200 p-4 home-main flex gap-0 overflow-hidden'} style={{height: '650px'}}>
       <LeftPane>  
         <h1 className='text-5xl font-bold heading text-highlight-blue text-nowrap'>Aadi Badola</h1>
         <ul className='list-disc flex gap-5 text-highlight-teal flex-wrap'>
@@ -46,10 +53,8 @@ const Main = () : ReactElement => {
         </Section>
         <Section id="Skills">
           <h2>Skills & Technologies</h2>
-          <ul>
-            <li>OOP</li>
-            <li>Data Structures</li>
-          </ul>
+          <p className='mb-3'>As a Software Engineer, I have acquired many skills, gained proficiency in a variety of technologies, and become fluent in multiple programming languages.</p>
+          <AccordionCustom title='Languages' languages={languages} />
         </Section>
       </RightPane>
 
