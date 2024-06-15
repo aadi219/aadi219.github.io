@@ -1,4 +1,3 @@
-import React from 'react'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Button } from '@mui/material';
 

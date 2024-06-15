@@ -1,5 +1,3 @@
-import { TextsmsSharp } from '@mui/icons-material'
-import React from 'react'
 
 const skills = {
         languages: [

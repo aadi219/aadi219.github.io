@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 
 const SubnavItem = ({linkTo} : {linkTo: string}) : ReactElement => {
   return (

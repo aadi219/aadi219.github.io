@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react'
+import { ReactElement } from 'react'
 import SubNav from './SubNav.tsx'
 import Section from './Section.tsx'
 import Projects from './Projects.tsx'
 import Skills from './Skills.tsx'
-import projectData from '/src/data/projects.json';
+import projectData from '../../../src/data/projects.json';
 
 
 export const LeftPane = ({children} : {children: ReactElement[]}) => {

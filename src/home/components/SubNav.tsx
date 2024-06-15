@@ -1,4 +1,3 @@
-import React from 'react'
 import SubnavItem from './SubnavItem.tsx'
 const SubNav = () => {
   return (

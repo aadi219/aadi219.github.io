@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { ReactElement } from 'react'
 
 export const NavLink = ({addr, text}: {addr:string, text:string}) : ReactElement => {
   return (

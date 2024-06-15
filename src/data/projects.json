@@ -32,7 +32,8 @@
             "title": "Portfolio Website",
             "tags": ["Web", "REACT.js"],
             "description_short": "...",
-            "description_long": "The project you are currently viewing, my portfolio website was designed and coded from scratch using REACT (Vite) in TypeScript and styled using Tailwind CSS. The website showcases my skills and abilities as a developer and designer not only through its content but by its design as well. This project is in active development and will continue to evolve with me as I grow as a developer. "
+            "description_long": "The project you are currently viewing, my portfolio website was designed and coded from scratch using REACT (Vite) in TypeScript and styled using Tailwind CSS. The website showcases my skills and abilities as a developer and designer not only through its content but by its design as well. This project is in active development and will continue to evolve with me as I grow as a developer.",
+            "features": ["Elegant UI/UX", "Coded in React", "Tailwind Styling"]
         },
         {
             "title": "Machine Learning",
