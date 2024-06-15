@@ -1,9 +1,10 @@
 import React, { ReactElement, useState } from 'react'
 import SubNav from './SubNav.tsx'
 import Section from './Section.tsx'
-import ProgressBar from './ProgressBar.tsx'
-import AccordionCustom from './AccordionCustom.tsx'
-import {skills} from "/src/data/skills.json";
+import Projects from './Projects.tsx'
+import Skills from './Skills.tsx'
+import projectData from '/src/data/projects.json';
+
 
 export const LeftPane = ({children} : {children: ReactElement[]}) => {
   return (
@@ -22,9 +23,8 @@ export const RightPane = ({children} : {children: ReactElement[]}) => {
 }
 
 const Main = () : ReactElement => {
-  
-  let {languages} = skills;
-  
+  let {projects} = projectData;
+  projects = projects.slice(0,4);
   return (
     <div className={'border-2 border-teal-200 p-4 home-main flex gap-0 overflow-hidden'} style={{height: '650px'}}>
       <LeftPane>  
@@ -53,8 +53,11 @@ const Main = () : ReactElement => {
         </Section>
         <Section id="Skills">
           <h2>Skills & Technologies</h2>
-          <p className='mb-3'>As a Software Engineer, I have acquired many skills, gained proficiency in a variety of technologies, and become fluent in multiple programming languages.</p>
-          <AccordionCustom title='Languages' languages={languages} />
+          <Skills />
+        </Section>
+        <Section id="Projects">
+          <h2>Projects</h2>
+          <Projects projects={projects}/>
         </Section>
       </RightPane>
 

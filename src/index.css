@@ -12,6 +12,10 @@
   --highlight-teal: #4AFEBD;  
 }
 
+*, html {
+  scroll-behavior: smooth !important;
+}
+
 #root {
   margin: 0;
   padding: 0;
@@ -33,4 +37,41 @@ section h2 {
   font-size: 2.4rem;
   font-weight: 650;
   color: var(--highlight-blue);
+}
+#skills>div {
+  width: 95%;
+  background-color: var(--col-dark);
+  padding: 1em;
+  padding-top: 0.5em;
+  margin-bottom: 4%;
+  border-radius: 10px;
+  /* box-shadow: 2px 2px 5px var(--bg-med); */
+  color: var(--highlight-blue);
+  transition: box-shadow 300ms;
+  border: solid 2px var(--bg-med)
+}
+/* #skills>div:hover {
+  box-shadow: 0 0 10px var(--highlight-teal);
+} */
+#skills>div:hover .skill-icon i {
+  color: var(--highlight-teal);
+  text-shadow: 0 0 10px var(--bg-med);
+}
+
+#skills>div>ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.skill-icon i {
+  /* text-shadow: 0 0 4px var(--bg-med); */
+  transition: color ease-in-out 800ms;
+  transition: text-shadow 600ms;
+}
+#projects-button:hover {
+  background-color: var(--bg-med);
+}
+#projects-button:hover p {
+  color: white;
 }
