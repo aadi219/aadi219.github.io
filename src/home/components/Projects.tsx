@@ -1,13 +1,8 @@
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Button } from '@mui/material';
+import ProjectData from '../../data/ProjectData';
+import { Link } from 'react-router-dom';
 
-interface ProjectData {
-    title: string,
-    tags: string[],
-    description_short: string,
-    description_long: string,
-    features: string[]
-}
 
 const Project = ({project}: {project: ProjectData}) => {
     return (
@@ -24,10 +19,12 @@ const Projects = ({projects} : {projects: ProjectData[]}) => {
     <div className='flex flex-col mt-2'>
         {projects.map((project) => <Project project={project} />)}
         <div className='flex justify-end'>
-            <Button 
-                id="projects-button" className='w-[50%] rounded-full align-middle' variant='contained' href='/projects' sx={{bgcolor: '#4AFEBD'}}>
-                <p className='text-col-dark transition-colors duration-200'>See the rest of my projects <ArrowOutwardIcon/></p>
-            </Button>
+            <Link to="/projects" className='w-[100%]'>
+                <Button 
+                    id="projects-button" className='w-[50%] rounded-full align-middle' variant='contained' href='/projects' sx={{bgcolor: '#4AFEBD'}}>
+                    <p className='text-col-dark transition-colors duration-200'>See the rest of my projects <ArrowOutwardIcon/></p>
+                </Button>
+            </Link>
         </div>
     </div>
   )

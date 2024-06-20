@@ -2,6 +2,7 @@
     "projects": [
         {
             "title": "TravelQuest",
+            "img": "travelquest.jpg",
             "tags": ["Web", "Full-Stack", "ASP.NET"],
             "description_short": "An ultimate one-stop service allowing you to create seamless package bookings for hotels, flights and car rentals—all with just a few clicks!",
             "description_long": "TravelQuest is a robust and dynamic full-stack web application developed using ASP.NET, designed to streamline travel bookings for flights, hotels, and car rentals. This comprehensive platform offers an intuitive user experience, enabling seamless browsing and package bookings",
@@ -9,41 +10,47 @@
         },
         {
             "title": "Connect Four",
-            "tags": ["Data Structures & Algorithms", "Java", "Artificial Intelligence", "Game"],
+            "img": "connect-four.jpg",
+            "tags": ["Data Structures & Algorithms", "Artificial Intelligence"],
             "description_short": "A fun and interactive recreation of the popular Connect Four game with Multi-player and Single-Player gamemodes featuring an unbeatable AI player.",
             "description_long": "The classic Connect Four game reimagined in Java, featuring both multiplayer and single-player modes. In single-player mode, challenge yourself against an unbeatable AI opponent, meticulously crafted using the Minimax algorithm and enhanced with Alpha-Beta pruning and Heuristic Move Ordering for optimal performance. This project showcases advanced algorithmic implementation, seamless user interaction, and strategic gameplay dynamics, making it an impressive demonstration of Java programming and artificial intelligence techniques.",
             "features": ["Seamless Game Flow", "Algorithmic AI Integration", "Game-specific AI Optimizations"]
         },
         {
             "title": "Image Processing",
+            "img": "image-processing.jpg",
             "tags": ["Creative Coding", "Image Manipulation", "Web"],
             "description_short": "Transform your images with ease using my p5.js-powered web app, offering advanced manipulation features like gray-scaling, inversion, and kernel convolutions.",
             "description_long": "Discover a powerful web-based image processing application developed with JavaScript and p5.js, enabling users to perform both simple and advanced image manipulation operations such as gray-scaling, inversion, and edge detection using kernel convolution! This project showcases my ability to leverage JavaScript and p5.js for creating sophisticated, interactive web applications, making it an impressive demonstration of my web development and problem-solving abilities.",
             "features": ["Fast Client-Side Processing", "Edge Detection in Images"]
         },
         {
+            "title": "Machine Learning",
+            "img": "machine-learning.jpg",
+            "tags": ["Data Science", "Artificial Intelligence", "Python"],
+            "description_short": "Detailed experiments comprising of utilizing various Machine Learning algorithms on real-world datasets following the complete Data Science pipeline!",
+            "description_long": "Explore my comprehensive collection of experiments dedicated to Machine Learning and Data Science, showcasing a diverse array of projects involving Clustering, Classification, Regression, and Neural Networks. Each project demonstrates my expertise in the full data science pipeline from Exploratory Data Analysis & Visualization to Data Preprocessing & Cleanup to Implementing appropriate models and finally interpreting results and deriving observations.",
+            "features": ["Exploratory Data Analysis", "Data Preprocessing & Cleanup", "Data Visualisation", "Algorithm Implementation", "Statistical Analyses & Evaluations"]
+        },
+        {
             "title": "Perceptron Visualisation",
-            "tags": ["Artificial Intelligence", "Neural Networks", "Visualization", "Java"],
+            "img": "perceptron.jpg",
+            "tags": ["Artificial Intelligence", "Neural Networks", "Java"],
             "description_short": "See the working of a Perceptron-based neural network in real time as it gradually regresses on a linear function and 'learns' to convert from Celsius to Farhenheit.",
             "description_long": "This Java based project showcases the training of a Perceptron, a unit of a neural network on linear functions and its learning using the backpropagation algorithm coded from scratch and visualized using the Processing library. This project demonstrates my proficiency in Java programming, deep learning concepts and interactive data visualisation techniques, making it an apt showcase of my software development skills.",
             "features": ["Perceptron Training using Backpropagation", "Regression Visualization", "Interactive Learning"]
         },
         {
             "title": "Portfolio Website",
+            "img": "portfolio.jpg",
             "tags": ["Web", "REACT.js"],
             "description_short": "...",
             "description_long": "The project you are currently viewing, my portfolio website was designed and coded from scratch using REACT (Vite) in TypeScript and styled using Tailwind CSS. The website showcases my skills and abilities as a developer and designer not only through its content but by its design as well. This project is in active development and will continue to evolve with me as I grow as a developer.",
             "features": ["Elegant UI/UX", "Coded in React", "Tailwind Styling"]
         },
         {
-            "title": "Machine Learning",
-            "tags": ["Data Science", "Artificial Intelligence"],
-            "description_short": "Detailed and extensive experiments comprising of Exploratory Data Analysis, Data Pre-processing, Visualisation, Implementation of appropriate ML Algorithms and finally derivation of observations!",
-            "description_long": "Explore my comprehensive collection of experiments dedicated to Machine Learning and Data Science, showcasing a diverse array of projects involving Clustering, Classification, Regression, and Neural Networks. Each project demonstrates my expertise in the full data science pipeline.",
-            "features": ["Exploratory Data Analysis", "Data Preprocessing & Cleanup", "Data Visualisation", "Algorithm Implementation", "Statistical Analyses & Evaluations"]
-        },
-        {
             "title": "Learning Voyage",
+            "img": "learningvoyage.jpg",
             "tags": ["Web", "Full-Stack", "LAMP"],
             "description_short": "Empowering Community-driven learning with seamless resource sharing, all crafted using the powerful LAMP stack!",
             "description_long": "Learning Voyage is an innovative community-driven learning platform developed using the LAMP stack, designed to empower users to create and share custom learning paths for a wide range of topics. Learning Voyage demonstrates my ability to create complex, user-centric web applications, combining secure backend processes with a rich, interactive frontend, making it an impressive example of my full-stack development skills.",
@@ -51,24 +58,11 @@
         },
         {
             "title": "Expense Tracker",
+            "img": "expense-tracker.jpg",
             "tags": ["Console App", "Python", "Everyday-App"],
             "description_short": "A simple, yet sophpisticated Expense Tracker to organize your budget and provide detailed reports and statistics regarding your monthly and annual expenditures!",
             "description_long": "This simple, yet sophisticated Expense Tracker is designed to help you easily organize your income and expenses, providing detailed reports and statistics regarding your monthly and annual expenditures. The application prioritizes security and stores all data on a local sqlite database and contains secure user management with password hashing and resetting facilities.",
             "features": ["Report and Statistics Generation", "Secure User Management", "Password Hashing and Resetting", "Simple Application Flow", "Robust Object-Oriented Design & Clean Code"]
-        },
-        {
-            "title": "Predicting Salaries",
-            "tags": ["Artificial Intelligence", "Python"],
-            "description_short": "...",
-            "description_long": "This project consisted of using a publicly available dataset containing information on working-class adults and their salaries, cleaning and analysing the data, and finally training a classifier model to predict the salaries of an adult based on some feature values.",
-            "features": ["Data Preprocessing & Cleanup", "Algorithm Implementation", "AI Model Training & Evaluation"]
-        },
-        {
-            "title": "Analyzing Trends in the Video Game Market",
-            "tags": ["Data Analysis", "Data Visualisation", "Python", "Statistics"],
-            "description_short": "...",
-            "description_long": "This project comprised of an observational experiment on a publicly available dataset containing information on Video Games sales across the globe. Utilizing thorough data cleanup techniques and appropriate visualization methods, I was able to draw out some interesting observations and analyses through this data.",
-            "features": ["Data Preprocessing & Cleanup", "Extensive Data Visualistion"]
         }
     ]
 }

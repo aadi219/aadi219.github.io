@@ -4,6 +4,7 @@ import Section from './Section.tsx'
 import Projects from './Projects.tsx'
 import Skills from './Skills.tsx'
 import projectData from '../../../src/data/projects.json';
+import Contacts from '../../components/Contacts.tsx'
 
 
 export const LeftPane = ({children} : {children: ReactElement[]}) => {
@@ -26,8 +27,8 @@ const Main = () : ReactElement => {
   let {projects} = projectData;
   projects = projects.slice(0,4);
   return (
-    <div className={'border-2 border-teal-200 p-4 home-main flex gap-0 overflow-hidden'} style={{height: '650px'}}>
-      <LeftPane>  
+    <> 
+       <LeftPane>  
         <h1 className='text-5xl font-bold heading text-highlight-blue text-nowrap'>Aadi Badola</h1>
         <ul className='list-disc flex gap-5 text-highlight-teal flex-wrap'>
           <li className='list-none'>Software Engineer</li>
@@ -60,8 +61,8 @@ const Main = () : ReactElement => {
           <Projects projects={projects}/>
         </Section>
       </RightPane>
-
-    </div>
+      <Contacts />
+    </>
   )
 }
 

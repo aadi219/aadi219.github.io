@@ -45,14 +45,11 @@ section h2 {
   padding-top: 0.5em;
   margin-bottom: 4%;
   border-radius: 10px;
-  /* box-shadow: 2px 2px 5px var(--bg-med); */
   color: var(--highlight-blue);
   transition: box-shadow 300ms;
   border: solid 2px var(--bg-med)
 }
-/* #skills>div:hover {
-  box-shadow: 0 0 10px var(--highlight-teal);
-} */
+
 #skills>div:hover .skill-icon i {
   color: var(--highlight-teal);
   text-shadow: 0 0 10px var(--bg-med);
@@ -65,13 +62,40 @@ section h2 {
 }
 
 .skill-icon i {
-  /* text-shadow: 0 0 4px var(--bg-med); */
-  transition: color ease-in-out 800ms;
-  transition: text-shadow 600ms;
+  transition: color ease-in 400ms, text-shadow ease-in-out 500ms;
 }
 #projects-button:hover {
   background-color: var(--bg-med);
 }
 #projects-button:hover p {
   color: white;
+}
+#main {
+  display: relative;
+}
+#contacts {
+  display: flex;
+  gap: 10%;
+  position: absolute;
+  bottom: 7%;
+  left: 3%;
+  align-items: center;
+}
+#contacts a *{
+  font-size: 2.3rem;
+  color: var(--highlight-blue);
+  transition: color ease-out 500ms;
+}
+
+#contacts a:hover * {
+  color: var(--highlight-teal);
+}
+
+.projectCard {
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  overflow: scroll;
+  /* box-shadow: 2px 2px 4px red; */
 }
