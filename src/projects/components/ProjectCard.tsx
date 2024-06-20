@@ -2,7 +2,7 @@ import { Card } from "@mui/joy"
 import { Button } from "@mui/material";
 import ProjectData from "../../data/ProjectData"
 
-const imgRoot : string = "../../../src/assets/img/projects/";
+const imgRoot : string = "/assets/img/projects/";
 
 const Tag = ({name}:{name: string}) => {
     return (
@@ -13,7 +13,7 @@ const Tag = ({name}:{name: string}) => {
 }
 
 const ProjectCard = ({project}: {project: ProjectData}) => {
-    const description = project.description_long;
+    // const description = project.description_long;
     return (
         <div className="">
             <Card 
