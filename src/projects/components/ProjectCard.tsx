@@ -1,6 +1,8 @@
 import { Card } from "@mui/joy"
 import { Button } from "@mui/material";
 import ProjectData from "../../data/ProjectData"
+import { useState } from "react";
+import ProjectModal from "./ProjectModal";
 
 const imgRoot : string = "/assets/img/projects/";
 
@@ -13,7 +15,11 @@ const Tag = ({name}:{name: string}) => {
 }
 
 const ProjectCard = ({project}: {project: ProjectData}) => {
-    // const description = project.description_long;
+    
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     return (
         <div className="">
             <Card 
@@ -21,7 +27,9 @@ const ProjectCard = ({project}: {project: ProjectData}) => {
                 height: 400,
                 backgroundColor: 'var(--col-dark)',
                 padding: '0',
-                overflow: "hidden"
+                overflow: "hidden",
+                borderColor: 'var(--bg-med)',
+                // border: 'solid 2px var(--bg-med)'
             }}
             > 
                 <div>
@@ -36,11 +44,12 @@ const ProjectCard = ({project}: {project: ProjectData}) => {
                     </ul>    
                 </div>
                 <div>
-                    <Button variant="contained">
+                    <Button variant="contained" onClick={handleOpen}>
                         View Details
                     </Button>
                 </div>
             </Card>
+            <ProjectModal isOpen={open} handleClose={handleClose} project={project} imgRoot={imgRoot} />
         </div>
   )
 }

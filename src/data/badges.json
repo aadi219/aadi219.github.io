@@ -1,0 +1,28 @@
+{
+    "badges": {
+        "python": "https://img.shields.io/badge/Python-black?style=for-the-badge&logo=python&logoColor=yellow",
+        "javascript": "https://img.shields.io/badge/Javascript-black?style=for-the-badge&logo=javascript",
+        "typescript": "https://img.shields.io/badge/TypeScript-black?style=for-the-badge&logo=typescript",
+        "aspdotnet": "https://img.shields.io/badge/ASP.NET-black?style=for-the-badge&logo=dotnet",
+        "jupyter": "https://img.shields.io/badge/Jupyter-black?style=for-the-badge&logo=jupyter",
+        "java": "https://img.shields.io/badge/java-black?style=for-the-badge",
+        "ai": "https://img.shields.io/badge/AI-black?style=for-the-badge",
+        "react": "https://img.shields.io/badge/React-black?style=for-the-badge&logo=react",
+        "node": "https://img.shields.io/badge/Node-black?style=for-the-badge&logo=nodedotjs",
+        "vite": "https://img.shields.io/badge/vite-black?style=for-the-badge&logo=vite",
+        "p5": "https://img.shields.io/badge/p5.js-black?style=for-the-badge&logo=p5dotjs",
+        "processing": "https://img.shields.io/badge/processing-black?style=for-the-badge&logo=processingfoundation",
+        "express": "https://img.shields.io/badge/express-black?style=for-the-badge&logo=express",
+        "tensorflow": "https://img.shields.io/badge/tensorflow-black?style=for-the-badge&logo=tensorflow",
+        "scikit-learn": "https://img.shields.io/badge/Scikit--learn-black?style=for-the-badge&logo=scikitlearn",
+        "pandas": "https://img.shields.io/badge/pandas-black?style=for-the-badge&logo=pandas",
+        "php": "https://img.shields.io/badge/PHP-black?style=for-the-badge&logo=php",
+        "mysql": "https://img.shields.io/badge/mySQL-black?style=for-the-badge&logo=mysql",
+        "sqlite": "https://img.shields.io/badge/sqlite-black?style=for-the-badge&logo=sqlite",
+        "mssql": "https://img.shields.io/badge/sql--server-black?style=for-the-badge&logo=microsoftsqlserver",
+        "ajax": "https://img.shields.io/badge/ajax-black?style=for-the-badge",
+        "minimax": "https://img.shields.io/badge/minimax-black?style=for-the-badge",
+        "tailwind": "https://img.shields.io/badge/tailwind-black?style=for-the-badge&logo=tailwindcss",
+        "mui": "https://img.shields.io/badge/Material_UI-black?style=for-the-badge&logo=mui"
+    }
+}
