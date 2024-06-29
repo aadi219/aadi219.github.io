@@ -16,7 +16,7 @@ const Project = ({project}: {project: ProjectData}) => {
 
 const Projects = ({projects} : {projects: ProjectData[]}) => {
   return (
-    <div className='flex flex-col mt-2'>
+    <div className='flex flex-col mt-2 mb-6'>
         {projects.map((project) => <Project project={project} />)}
         <div className='flex justify-end'>
             <Link to="/projects" className='w-[100%]'>

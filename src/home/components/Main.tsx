@@ -16,8 +16,15 @@ export const LeftPane = ({children} : {children: ReactElement[]}) => {
 }
 
 export const RightPane = ({children} : {children: ReactElement[]}) => {
+  const handleScroll = (e: React.UIEvent) => {
+        const element = (e.target as HTMLElement);
+        let scrollPos = element.scrollTop;
+        scrollPos = scrollPos <= 5 ? scrollPos : 5; 
+        element.style.setProperty("mask-image", `linear-gradient(to top, black ${100-scrollPos}%, transparent)`) 
+        element.style.setProperty("-webkit-mask-image", `linear-gradient(to top, black ${100-scrollPos}%, transparent)`)
+    }
   return (
-    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-auto hide-scroll'>
+    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-auto hide-scroll' onScroll={handleScroll}>
       {...children}
     </div>
   )

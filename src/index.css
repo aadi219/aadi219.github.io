@@ -91,15 +91,6 @@ section h2 {
   color: var(--highlight-teal);
 }
 
-.projectCard {
-  overflow: hidden;
-}
-
-.projectCard:hover {
-  overflow: scroll;
-  /* box-shadow: 2px 2px 4px red; */
-}
-
 
 /* .hide-scroll::-webkit-scrollbar {
   display: none;
@@ -130,4 +121,3 @@ section h2 {
 .hide-scroll-complete::-webkit-scrollbar {
   display: none;
 }
-
