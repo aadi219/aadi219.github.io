@@ -18,7 +18,7 @@ const Navbar = () : ReactElement => {
       <NavLink addr='/' text='HOME' />
       <NavLink addr='/about' text='ABOUT' />
       <NavLink addr='/projects' text='PROJECTS' />
-      <NavLink addr='#contact' text='RESUME' />
+      <a className='px-14 py-2 text-highlight-teal hover:text-highlight-blue transition-colors duration-200' href='https://drive.google.com/file/d/1EOOdWZ7B2Zi_c2H99zidLk8G3ffSa4Jp/view?usp=sharing' target='_blank'>RESUME</a>
     </div>
   )
 }

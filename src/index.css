@@ -113,3 +113,27 @@ section h2 {
 .hide-scroll-complete::-webkit-scrollbar {
   display: none;
 }
+.about-heading {
+  font-weight: 600;
+  color: var(--highlight-teal);
+  font-size: 1.5rem;
+}
+
+.btn-fill {
+  color: var(--highlight-teal);
+  border: 2px solid var(--highlight-teal);
+  border-radius: 0px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: var(--highlight-teal);
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: linear 0.5s;
+}
+.btn-fill:hover {
+  box-shadow: inset 400px 0 0 0 #36be8c;
+  color: white;
+}
