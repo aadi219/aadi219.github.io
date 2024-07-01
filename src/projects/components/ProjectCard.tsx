@@ -8,7 +8,7 @@ const imgRoot : string = "/assets/img/projects/";
 
 const Tag = ({name}:{name: string}) => {
     return (
-        <button className="bg-transparent border border-highlight-teal transition-colors duration-[400ms] text-highlight-blue hover:bg-highlight-blue hover:text-white font-bold py-2 px-4 rounded-full text-sm">
+        <button className="font-main bg-transparent border border-highlight-teal transition-colors duration-[400ms] text-highlight-blue hover:bg-bg-med hover:text-white font-bold py-2 px-4 rounded-full text-sm">
            {name}
         </button>
     )
@@ -38,13 +38,16 @@ const ProjectCard = ({project}: {project: ProjectData}) => {
                         <img src={imgRoot + project.img} className="h-[230px]" /> : '' }
                         
                     </div>
-                    <p className="text-3xl py-3 text-highlight-teal font-semibold">{project.title}</p>
+                    <p className="text-3xl py-3 text-highlight-teal font-semibold font-heading">{project.title}</p>
                     <ul className="flex flex-wrap justify-center gap-1">
                         {project.tags.map(tag => <li><Tag name={tag} /></li>)}
                     </ul>    
                 </div>
                 <div>
-                    <Button variant="contained" onClick={handleOpen}>
+                    <Button variant="contained" onClick={handleOpen}
+                    sx={{
+                        fontFamily: "Outfit"
+                    }}>
                         View Details
                     </Button>
                 </div>

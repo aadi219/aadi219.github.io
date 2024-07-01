@@ -9,12 +9,23 @@
   --bg-hover: #071a27;
   --bg-med: #0d90bb;
   --highlight-blue: #5FCBEC;
-  --highlight-teal: #4AFEBD;  
+  --highlight-teal: #4AFEBD;
 }
 
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit/static/Outfit-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/static/Montserrat-Regular.ttf");
+}
 *, html {
   scroll-behavior: smooth !important;
 }
+
+
 
 #root {
   margin: 0;
@@ -27,6 +38,7 @@
   text-align: start;
   top: 3rem
 }
+
 
 .subnav a:hover {
   box-shadow: inset 10.5em 0 0 0 var(--highlight-blue);
@@ -65,10 +77,7 @@ section h2 {
   transition: color ease-in 400ms, text-shadow ease-in-out 500ms;
 }
 #projects-button:hover {
-  background-color: var(--bg-med);
-}
-#projects-button:hover p {
-  color: white;
+  background-color: #36be8c;
 }
 #main {
   display: relative;
@@ -76,11 +85,19 @@ section h2 {
 #contacts {
   display: flex;
   gap: 10%;
-  position: absolute;
+  position: fixed;
   bottom: 7%;
-  left: 3%;
   align-items: center;
 }
+#main {
+  position: relative;
+}
+.toTop {
+  position: absolute;
+  bottom: -3%;
+  right: 0.6%;
+}
+
 #contacts a *{
   font-size: 2.3rem;
   color: var(--highlight-blue);
@@ -124,16 +141,36 @@ section h2 {
   border: 2px solid var(--highlight-teal);
   border-radius: 0px;
   display: inline-block;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: "Outfit", "Lucida Console", Monaco, monospace;
   font-size: 14px;
   letter-spacing: 1px;
   cursor: pointer;
   box-shadow: var(--highlight-teal);
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
-  transition: linear 0.5s;
+  transition: linear 0.4s;
 }
 .btn-fill:hover {
   box-shadow: inset 400px 0 0 0 #36be8c;
   color: white;
+}
+
+#about-content>h2+* {
+  color: var(--highlight-blue);
+}
+#about-content>h2 {
+  margin-bottom: 1%;
+}
+#about-content br {
+  display: block;
+  content: "";
+  margin-top: 2.5%;
+}
+
+.font-main, #skills>div>p, #Bio p, #about-content>h2+* {
+  font-family: "Montserrat";
+}
+
+.font-heading, section>h2, #about-content>h2 {
+  font-family: "Outfit";
 }

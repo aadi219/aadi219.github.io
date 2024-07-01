@@ -22,13 +22,13 @@ const ProjectModal = ({isOpen, handleClose, project, imgRoot}
                 }}
                 sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backdropFilter: 'blur(5px)' }}
                 > 
-                        <div className="modal-body z-50 rounded-2xl bg-bg-dark border-2 border-highlight-blue overflow-auto w-[50%] h-[85%]">
+                        <div className="modal-body z-50 rounded-2xl bg-bg-dark border-2 border-highlight-blue overflow-auto w-[50%] min-h-fit py-4">
                             <div className="modal-header flex flex-col items-center">
-                                <div className="w-full px-3 h-[40%] pt-3 flex justify-center">
+                                <div className="w-full px-3 h-[40%] flex justify-center">
                                     <img className="h-[40%] max-h-[300px] rounded-lg" src={imgRoot + project.img} alt={`Project showcase image for ${project.title}`} />
                                 </div>
                                 <div className="flex flex-col items-center gap-2 pt-1">
-                                    <h4 className="text-highlight-teal font-bold text-3xl">{project.title}</h4>
+                                    <h4 className="text-highlight-teal font-bold text-3xl font-heading">{project.title}</h4>
                                     <ul className="flex gap-2 justify-center">
                                         {
                                             project.badges.map((badge) => <li><img src={badges[badge]} alt="" /></li>)
@@ -36,8 +36,8 @@ const ProjectModal = ({isOpen, handleClose, project, imgRoot}
                                     </ul>
                                 </div>
                             </div>
-                            <div className="modal-body flex pt-2 px-[5%]">
-                                <p className="text-[1.1rem] text-highlight-blue text-justify">{project.description_long}</p>
+                            <div className="modal-body flex pt-2 px-[11%]">
+                                <p className="text-[1.1rem] text-highlight-blue font-main">{project.description_long}</p>
                             </div>
                             {
                                 project.source ? 
@@ -53,7 +53,7 @@ const ProjectModal = ({isOpen, handleClose, project, imgRoot}
                                         : ''
                                     }
                                 </div>
-                                : <p className="text-highlight-teal text-center pt-6">This project has a private repository. Contact me if you wish to view the project source.</p>
+                                : <p className="text-highlight-teal font-main text-center pt-6">This project has a private repository. Contact me if you wish to view the project source.</p>
                             }
                         </div>
                     

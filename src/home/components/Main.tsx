@@ -9,16 +9,16 @@ import Contacts from '../../components/Contacts.tsx'
 
 export const LeftPane = ({children} : {children: ReactElement[]}) => {
   return (
-    <div className='flex flex-col pane gap-3 w-[55%] pl-24'>
+    <aside className='flex flex-col pane gap-3 w-[55%] pl-24'>
       {...children}
-    </div>
+    </aside>
   )
 }
 
 export const RightPane = ({children} : {children: ReactElement[]}) => {
   
   return (
-    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-auto hide-scroll' >
+    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-auto hide-scroll scroll-smooth' >
       {...children}
     </div>
   )
@@ -30,8 +30,8 @@ const Main = () : ReactElement => {
   return (
     <> 
        <LeftPane>  
-        <h1 className='text-5xl font-bold heading text-highlight-blue text-nowrap'>Aadi Badola</h1>
-        <ul className='list-disc flex gap-5 text-highlight-teal flex-wrap'>
+        <h1 className='text-5xl font-bold heading text-highlight-blue text-nowrap font-heading'>Aadi Badola</h1>
+        <ul className='font-heading list-disc flex gap-5 text-highlight-teal flex-wrap'>
           <li className='list-none'>Software Engineer</li>
           <li>Full-Stack Developer</li>
           <li>Data Scientist</li>
@@ -41,7 +41,7 @@ const Main = () : ReactElement => {
       <RightPane>
         <Section id="Bio">
           <h2>Bio</h2>
-          <p className='w-[86%] text-start'>
+          <p className='w-[86%] text-start text-highlight-blue'>
             Born in 2004 in India, I was introduced to programming early in High School. Gradually developing and discovering increasingly
             complicated yet elegant solutions for different problems, I realised that programming perfectly encapsulated my love for problem-solving
             and my constant desire to innovate and improve upon my projects. <br/>
