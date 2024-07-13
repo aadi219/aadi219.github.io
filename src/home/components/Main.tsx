@@ -18,7 +18,7 @@ export const LeftPane = ({children} : {children: ReactElement[]}) => {
 export const RightPane = ({children} : {children: ReactElement[]}) => {
   
   return (
-    <div className='flex flex-col pane gap-5 w-[45%] pr-10 overflow-auto hide-scroll scroll-smooth' >
+    <div className='flex flex-col pane gap-5 w-[45%] h-full pr-10 overflow-auto hide-scroll scroll-smooth' >
       {...children}
     </div>
   )

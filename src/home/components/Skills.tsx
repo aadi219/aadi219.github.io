@@ -97,7 +97,7 @@ const Skills = () => {
             <p className='text-lg mb-2'>Some of my frequently used languages are</p>
             <ul>
                 {skills.languages.map((lang, idx) => {
-                    return <li key={idx} className='text-5xl text-highlight-blue skill-icon'>{lang.icon}</li>
+                    return <li key={idx} className='text-highlight-blue skill-icon'>{lang.icon}</li>
                 })}
             </ul>
         </div>
@@ -106,7 +106,7 @@ const Skills = () => {
             <ul>
                 {
                     skills.web.map((tech, idx) => {
-                        return <li key={idx} className='text-5xl text-highlight-blue skill-icon'>{tech.icon}</li>
+                        return <li key={idx} className='text-highlight-blue skill-icon'>{tech.icon}</li>
                     })
                 }
             </ul>
@@ -116,7 +116,7 @@ const Skills = () => {
             <ul>
                 {
                     skills.machineLearning.map((tech, idx) => {
-                        return <li key={idx} className='text-5xl text-highlight-blue skill-icon'>{tech.icon}</li>
+                        return <li key={idx} className='text-highlight-blue skill-icon'>{tech.icon}</li>
                     })
                 }
             </ul>
