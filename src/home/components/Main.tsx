@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { AnimatePresence, motion, MotionConfig, useScroll } from "motion/react";
+import { ReactElement, useEffect, useRef, useState } from "react";
 import projectData from "../../../src/data/projects.json";
 import Contacts from "../../components/Contacts.tsx";
 import Projects from "./Projects.tsx";
@@ -15,10 +16,43 @@ export const LeftPane = ({ children }: { children: ReactElement[] }) => {
 };
 
 export const RightPane = ({ children }: { children: ReactElement[] }) => {
+    const paneRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        container: paneRef,
+        offset: ["start start", "end end"]
+    });
+    const [visibleIndex, setVisibleIndex] = useState(0);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const index = Math.round(scrollYProgress.get() * (children.length - 1));
+        setVisibleIndex(index);
+      }
+      const unsubscribe = scrollYProgress.on("change", handleScroll);
+      return () => unsubscribe();
+    }, [scrollYProgress.get(), children.length]);
+
     return (
-        <div className="flex flex-col pane gap-5 w-[45%] h-full pr-10 overflow-auto hide-scroll scroll-smooth">
-            {children}
-        </div>
+      <div ref={paneRef} id="rightPane" className="relative w-[45%] h-screen pr-10 overflow-y-auto">
+          <div className="min-h-[300vh]">
+            <AnimatePresence mode="wait">
+              {children.map((child, index) => (
+                index === visibleIndex && (
+                  <motion.div
+                    key={index}
+                    className="sticky top-0 h-screen text-start"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{opacity: 1, y: 0}}
+                    exit={{opacity: 0, y: -50}}
+                    transition={{duration: 0.5, ease: "easeInOut"}}
+                  >
+                    {child}
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
+          </div>
+      </div>
     );
 };
 
@@ -40,7 +74,7 @@ const Main = (): ReactElement => {
             </LeftPane>
             <RightPane>
                 <Section id="Bio">
-                    <h2>Bio</h2>
+                    <h2 className=" pt-8">Bio</h2>
                     <p className="w-[86%] text-start text-highlight-blue">
                         Born in 2004 in India, I was introduced to programming
                         early in High School. Gradually developing and

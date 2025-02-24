@@ -27,23 +27,22 @@ const Main = () => {
                         I am a Software Engineer, highly skilled in the
                         end-to-end design and development of software and
                         web-applications using modern technologies like NodeJS,
-                        React, ASP.NET and more. <br />
-                        I was introduced to Software Development in High School
-                        in India, where I developed a passion for it through
-                        learning programming fundamentals in Python and
-                        essential database skills in MySQL. I designed many
-                        easy-to-use daily applications which familiarised me
-                        with the problem-solving process and allowed me to
-                        establish a solid foundation for my future endeavors.{" "}
-                        <br />
-                        I enrolled in George Brown College, where I am currently
-                        pursuing an Advanced Diploma in Computer Programming and
-                        Analysis, gaining vital skills and knowledge about the
-                        complete software development lifecycle. I excelled in
-                        my academic ventures, showing consistent high-level
-                        academic performance with an average 3.99 GPA across all
-                        my completed semesters, I am expected to graduate in
-                        April 2025. During my time at GBC, I was able to pursue
+                        React, ASP.NET and more. <br />I was introduced to
+                        Software Development in High School in India, where I
+                        developed a passion for it through learning programming
+                        fundamentals in Python and essential database skills in
+                        MySQL. I designed many easy-to-use daily applications
+                        which familiarised me with the problem-solving process
+                        and allowed me to establish a solid foundation for my
+                        future endeavors. <br />I enrolled in George Brown
+                        College, where I am currently pursuing an Advanced
+                        Diploma in Computer Programming and Analysis, gaining
+                        vital skills and knowledge about the complete software
+                        development lifecycle. I excelled in my academic
+                        ventures, showing consistent high-level academic
+                        performance with an average 3.99 GPA across all my
+                        completed semesters, I am expected to graduate in April
+                        2025. During my time at GBC, I was able to pursue
                         various extra-curricular activities and showcase my
                         skills while representing the college at various levels.{" "}
                         <br />
