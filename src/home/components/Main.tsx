@@ -10,7 +10,7 @@ import Contacts from '../../components/Contacts.tsx'
 export const LeftPane = ({children} : {children: ReactElement[]}) => {
   return (
     <aside className='flex flex-col pane gap-3 w-[55%] pl-24'>
-      {...children}
+      {children}
     </aside>
   )
 }
@@ -19,7 +19,7 @@ export const RightPane = ({children} : {children: ReactElement[]}) => {
   
   return (
     <div className='flex flex-col pane gap-5 w-[45%] h-full pr-10 overflow-auto hide-scroll scroll-smooth' >
-      {...children}
+      {children}
     </div>
   )
 }
