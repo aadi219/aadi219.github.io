@@ -6,6 +6,7 @@ import Projects from "./Projects.tsx";
 import Section from "./Section.tsx";
 import Skills from "./Skills.tsx";
 import SubNav from "./SubNav.tsx";
+import { ScrollContext } from "../context/ScrollContext.ts";
 
 export const LeftPane = ({ children }: { children: ReactElement[] }) => {
     return (
@@ -15,7 +16,12 @@ export const LeftPane = ({ children }: { children: ReactElement[] }) => {
     );
 };
 
-export const RightPane = ({ children }: { children: ReactElement[] }) => {
+interface RightPaneProps {
+  children: ReactElement[],
+  setScrollToIndex: (handler: (index: number) => void) => void
+}
+
+export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
     const paneRef = useRef(null);
     const { scrollYProgress } = useScroll({
         container: paneRef,
@@ -23,14 +29,27 @@ export const RightPane = ({ children }: { children: ReactElement[] }) => {
     });
     const [visibleIndex, setVisibleIndex] = useState(0);
 
+    const scrollToIndex = (index: number) => {
+      if (paneRef.current) {
+        const pane = paneRef.current as HTMLElement;
+        const scrollHeight = pane.scrollHeight - pane.clientHeight;
+        const targetScroll = (index / (children.length - 1)) * scrollHeight;
+        pane.scrollTo({
+          top: targetScroll,
+          behavior: 'smooth'
+        });
+      }
+    };
+
     useEffect(() => {
+      setScrollToIndex(() => scrollToIndex);
       const handleScroll = () => {
         const index = Math.round(scrollYProgress.get() * (children.length - 1));
         setVisibleIndex(index);
       }
       const unsubscribe = scrollYProgress.on("change", handleScroll);
       return () => unsubscribe();
-    }, [scrollYProgress.get(), children.length]);
+    }, [setScrollToIndex, scrollYProgress.get(), children.length]);
 
     return (
       <div ref={paneRef} id="rightPane" className="relative w-[45%] h-screen pr-10 overflow-y-auto">
@@ -59,8 +78,10 @@ export const RightPane = ({ children }: { children: ReactElement[] }) => {
 const Main = (): ReactElement => {
     let { projects } = projectData;
     projects = projects.slice(0, 4);
+    const [scrollToIndex, setScrollToIndex] = useState<(index: number) => void>(() => () => {});
+
     return (
-        <>
+        <ScrollContext.Provider value={{scrollToIndex}}>
             <LeftPane>
                 <h1 className="text-5xl font-bold heading text-highlight-blue text-nowrap font-heading">
                     Aadi Badola
@@ -72,7 +93,7 @@ const Main = (): ReactElement => {
                 </ul>
                 <SubNav />
             </LeftPane>
-            <RightPane>
+            <RightPane setScrollToIndex={setScrollToIndex}>
                 <Section id="Bio">
                     <h2 className=" pt-8">Bio</h2>
                     <p className="w-[86%] text-start text-highlight-blue">
@@ -106,7 +127,7 @@ const Main = (): ReactElement => {
                 </Section>
             </RightPane>
             <Contacts />
-        </>
+        </ScrollContext.Provider>
     );
 };
 

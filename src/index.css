@@ -53,7 +53,7 @@ section h2 {
     background-color: var(--col-dark);
     padding: 1em;
     padding-top: 0.5em;
-    margin-bottom: 4%;
+    margin-bottom: 2.5%;
     border-radius: 10px;
     color: var(--highlight-blue);
     transition: box-shadow 300ms;
