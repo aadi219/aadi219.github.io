@@ -1,5 +1,4 @@
-import { motion, useAnimate, useAnimation, useInView } from "motion/react";
-import { i } from "motion/react-client";
+import { motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
 
 const skills = {
@@ -60,8 +59,10 @@ const skills = {
         },
         {
             title: "Kafka",
-            icon: <i className="devicon-apachekafka-original-wordmark text-6xl"></i>
-        },
+            icon: (
+                <i className="devicon-apachekafka-original-wordmark text-6xl"></i>
+            )
+        }
         // {
         //     title: "Azure",
         //     icon: <i className="devicon-azure-plain"></i>
@@ -118,7 +119,7 @@ const Skills = () => {
         if (isInView) {
             controls.start("visible");
         }
-    },  [controls, isInView]);
+    }, [controls, isInView]);
 
     const createVariants = (delay: Number) => ({
         hidden: {
@@ -132,33 +133,34 @@ const Skills = () => {
             filter: "blur(0px)",
             transition: {
                 x: { duration: 0.6, delay },
-                opacity: {duration: 1, delay },
+                opacity: { duration: 1, delay },
                 filter: { duration: 0.4, delay },
                 ease: "easeOut"
-        }}
+            }
+        }
     });
 
     return (
         <div ref={ref} id="skills">
-            <Skill 
+            <Skill
                 title="Some of my frequently used languages are"
                 items={skills.languages}
                 controls={controls}
                 variants={createVariants(0)}
             />
-            <Skill 
+            <Skill
                 title="I am also proficient in the following web technologies"
                 items={skills.web}
                 controls={controls}
                 variants={createVariants(0.2)}
             />
-            <Skill 
+            <Skill
                 title="My projects in Machine Learning and Data Analysis make use of the following"
                 items={skills.machineLearning}
                 controls={controls}
                 variants={createVariants(0.4)}
             />
-            <Skill 
+            <Skill
                 title="Additionally, many of my projects utilize the following DevOps technologies"
                 items={skills.devops}
                 controls={controls}

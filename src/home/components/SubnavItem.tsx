@@ -2,12 +2,12 @@ import { ReactElement } from "react";
 import { useScroll } from "../context/ScrollContext";
 
 interface SubnavItemProps {
-    linkTo: string,
+    linkTo: string;
     index: number;
 }
 
 const SubnavItem = ({ linkTo, index }: SubnavItemProps): ReactElement => {
-    const {scrollToIndex} = useScroll();
+    const { scrollToIndex } = useScroll();
 
     const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
