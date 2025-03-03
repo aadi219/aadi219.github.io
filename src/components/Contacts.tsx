@@ -2,7 +2,7 @@ import { EmailRounded, GitHub, LinkedIn } from "@mui/icons-material";
 
 const Contacts = () => {
     return (
-        <ul id="contacts">
+        <ul id="contacts" className="relative z-20">
             <li>
                 <a target="_blank" href="https://github.com/aadi219/">
                     <GitHub />
