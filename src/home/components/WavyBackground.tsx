@@ -62,7 +62,7 @@ const WavyBackground = () => {
             p5.mouseY >= 0 &&
             p5.mouseY <= p5.height;
 
-        p5.clear();
+        p5.clear(0,0,0,0);
         p5.background(7, 33, 50, 15);
 
         const width = p5.width;
