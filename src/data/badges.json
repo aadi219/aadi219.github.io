@@ -23,6 +23,7 @@
         "ajax": "https://img.shields.io/badge/ajax-black?style=for-the-badge",
         "minimax": "https://img.shields.io/badge/minimax-black?style=for-the-badge",
         "tailwind": "https://img.shields.io/badge/tailwind-black?style=for-the-badge&logo=tailwindcss",
-        "mui": "https://img.shields.io/badge/Material_UI-black?style=for-the-badge&logo=mui"
+        "mui": "https://img.shields.io/badge/Material_UI-black?style=for-the-badge&logo=mui",
+        "spring": "https://img.shields.io/badge/Spring-black?style=for-the-badge&logo=spring&color=black"
     }
 }

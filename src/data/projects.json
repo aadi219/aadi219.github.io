@@ -15,6 +15,20 @@
             "badges": ["aspdotnet", "mssql", "javascript", "ajax"]
         },
         {
+            "title": "Image Processing",
+            "img": "image-processing.jpg",
+            "tags": ["Creative Coding", "Image Manipulation", "Web"],
+            "description_short": "Transform your images with ease using my p5.js-powered web app, offering advanced manipulation features like gray-scaling, inversion, and kernel convolutions.",
+            "description_long": "Discover a powerful web-based image processing application developed with JavaScript and p5.js, enabling users to perform both simple and advanced image manipulation operations such as gray-scaling, inversion, and edge detection using kernel convolution! This project showcases my ability to leverage JavaScript and p5.js for creating sophisticated, interactive web applications, making it an impressive demonstration of my web development and problem-solving abilities.",
+            "features": [
+                "Fast Client-Side Processing",
+                "Edge Detection in Images"
+            ],
+            "badges": ["javascript", "p5"],
+            "source": "https://github.com/aadi219/image-processing-js",
+            "demo": "https://aadi219.github.io/image-processing-js/"
+        },
+        {
             "title": "Connect Four",
             "img": "connect-four.jpg",
             "tags": ["Data Structures & Algorithms", "Artificial Intelligence"],
@@ -29,18 +43,17 @@
             "source": "https://github.com/tyleroneil72/connect-four-mini-max?tab=readme-ov-file"
         },
         {
-            "title": "Image Processing",
-            "img": "image-processing.jpg",
-            "tags": ["Creative Coding", "Image Manipulation", "Web"],
-            "description_short": "Transform your images with ease using my p5.js-powered web app, offering advanced manipulation features like gray-scaling, inversion, and kernel convolutions.",
-            "description_long": "Discover a powerful web-based image processing application developed with JavaScript and p5.js, enabling users to perform both simple and advanced image manipulation operations such as gray-scaling, inversion, and edge detection using kernel convolution! This project showcases my ability to leverage JavaScript and p5.js for creating sophisticated, interactive web applications, making it an impressive demonstration of my web development and problem-solving abilities.",
+            "title": "Event Scheduling API",
+            "img": "spring-boot-logo.png",
+            "tags": ["Web API", "Microservices", "Java Spring"],
+            "description_short": "A Spring Boot-powered backend for managing rooms and events, allowing authorized users to book venues seamlessly.",
+            "description_long": "A Spring Boot-based backend system designed to facilitate room reservations and event management. It provides authentication and role-based access control, ensuring only authorized users can book venues. The system includes RESTful APIs for creating, updating, and managing events, handling room availability, and enforcing booking policies. Ideal for organizations needing efficient scheduling and resource management.",
             "features": [
-                "Fast Client-Side Processing",
-                "Edge Detection in Images"
+                "Microservices Architecture",
+                "RESTful API",
+                "User Authentication & Authorization"
             ],
-            "badges": ["javascript", "p5"],
-            "source": "https://github.com/aadi219/image-processing-js",
-            "demo": "https://aadi219.github.io/image-processing-js/"
+            "badges": ["java", "spring", "REST"]
         },
         {
             "title": "Machine Learning",
