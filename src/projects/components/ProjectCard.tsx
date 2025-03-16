@@ -8,7 +8,7 @@ const imgRoot: string = "/assets/img/projects/";
 
 const Tag = ({ name }: { name: string }) => {
     return (
-        <button className="font-main bg-transparent border border-highlight-teal transition-colors duration-[400ms] text-highlight-blue hover:bg-bg-med hover:text-white font-bold py-2 px-4 rounded-full text-sm">
+        <button className="font-main bg-transparent border border-highlight-teal transition-colors duration-[400ms] text-highlight-blue hover:bg-bg-med hover:text-white font-bold py-2 px-4 rounded-full text-[0.8em] sm:text-sm">
             {name}
         </button>
     );
@@ -23,12 +23,11 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
         <div className="">
             <Card
                 sx={{
-                    height: 400,
+                    height: { xs: 400, sm: 480, md: 450, lg: 400 }, // Responsive height
                     backgroundColor: "var(--col-dark)",
                     padding: "0",
                     overflow: "hidden",
                     borderColor: "var(--bg-med)"
-                    // border: 'solid 2px var(--bg-med)'
                 }}
             >
                 <div>
@@ -36,13 +35,13 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
                         {project.img ? (
                             <img
                                 src={imgRoot + project.img}
-                                className="h-[230px]"
+                                className="h-[180px] sm:h-[230px]" // Responsive image height
                             />
                         ) : (
                             ""
                         )}
                     </div>
-                    <p className="text-3xl py-3 text-highlight-teal font-semibold font-heading">
+                    <p className="text-xl sm:text-3xl py-3 text-highlight-teal font-semibold font-heading">
                         {project.title}
                     </p>
                     <ul className="flex flex-wrap justify-center gap-1">
