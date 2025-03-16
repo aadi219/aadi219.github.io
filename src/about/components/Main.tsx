@@ -9,7 +9,7 @@ const Main = () => {
                 />
                 <div className="mx-auto">
                     <a
-                        href="https://drive.google.com/file/d/1EOOdWZ7B2Zi_c2H99zidLk8G3ffSa4Jp/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1sg_81CMjQP5hCaR5_TlrEPSvJIhWKCW8/view?usp=sharing"
                         target="_blank"
                         className="btn-fill p-3"
                     >
