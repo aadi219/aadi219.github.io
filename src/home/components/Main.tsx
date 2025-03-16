@@ -95,9 +95,9 @@ const Main = (): ReactElement => {
     );
     return (
         <ScrollContext.Provider value={{ scrollToIndex }}>
-            <div className="relative w-full h-screen overflow-scroll sm:overflow-hidden">
+            <div className="relative w-full h-screen overflow-hidden">
                 {/* Background layer */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute overflow-hidden inset-0 z-0">
                     <WavyBackground />
                 </div>
 
