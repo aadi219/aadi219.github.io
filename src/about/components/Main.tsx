@@ -24,19 +24,12 @@ const Main = () => {
                 >
                     <h2 className="about-heading">About Me</h2>
                     <p>
-                        I am a Software Engineer, highly skilled in the
+                        I'm Aadi Badola, a Software Engineer, highly skilled in the
                         end-to-end design and development of software and
-                        web-applications using modern technologies like NodeJS,
-                        React, ASP.NET and more. <br />I was introduced to
-                        Software Development in High School in India, where I
-                        developed a passion for it through learning programming
-                        fundamentals in Python and essential database skills in
-                        MySQL. I designed many easy-to-use daily applications
-                        which familiarised me with the problem-solving process
-                        and allowed me to establish a solid foundation for my
-                        future endeavors. <br />I enrolled in George Brown
-                        College, where I am currently pursuing an Advanced
-                        Diploma in Computer Programming and Analysis, gaining
+                        web-applications using modern technologies like NodeJS, Java Spring Boot
+                        React, ASP.NET and more. <br />
+                        I am currently pursuing an Advanced
+                        Diploma in Computer Programming and Analysis at George Brown College, gaining
                         vital skills and knowledge about the complete software
                         development lifecycle. I excelled in my academic
                         ventures, showing consistent high-level academic
@@ -44,8 +37,9 @@ const Main = () => {
                         completed semesters, I am expected to graduate in April
                         2025. During my time at GBC, I was able to pursue
                         various extra-curricular activities and showcase my
-                        skills while representing the college at various levels.{" "}
+                        skills while representing the college at various levels.
                         <br />
+                        In my spare time, I am usually reading, playing the piano, or learning something new which has piqued my interests
                     </p>
                     <h2 className="about-heading mt-10">
                         Some of my most notable achievements are:
@@ -72,6 +66,9 @@ const Main = () => {
                         Professional Experience
                     </h2>
                     <p className="">
+                       I have worked as a Research Student at George Brown College exploring and designing Deep Learning
+                        systems for improving manufacturing pipelines. 
+                        <br />
                         I have also professionally worked as a Computer Science
                         Tutor and Teacher's Assistant at George Brown conducting
                         over 450 hours of one-on-one and group tutoring
