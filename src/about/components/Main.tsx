@@ -1,13 +1,13 @@
 const Main = () => {
     return (
-        <div className="flex flex-flex-wrap px-40 gap-8 relative top-[40px]">
-            <div className="w-[30%] md:w-auto md:h-[100px] flex flex-col gap-4">
+        <div className="flex flex-col lg:flex-row xl:px-40 gap-8 md:relative md:top-[40px] overflow-scroll lg:overflow-hidden">
+            <div className="w-full lg:w-[30%] flex items-center lg:items-start flex-col gap-4">
                 <img
-                    className="rounded-full w-[300px]"
+                    className="mx-auto rounded-full w-[200px] sm:w-[250px] lg:w-[300px]"
                     src="/assets/img/portfolio-pic.jpg"
                     alt="Picture of Aadi Badola"
                 />
-                <div>
+                <div className="mx-auto">
                     <a
                         href="https://drive.google.com/file/d/1EOOdWZ7B2Zi_c2H99zidLk8G3ffSa4Jp/view?usp=sharing"
                         target="_blank"
@@ -17,7 +17,7 @@ const Main = () => {
                     </a>
                 </div>
             </div>
-            <div className="w-[70%] overflow-auto hide-scroll">
+            <div className="w-full lg:w-[70%] lg:overflow-auto">
                 <div
                     className="text-left text-lg text-bg-med flex flex-col pr-5"
                     id="about-content"
