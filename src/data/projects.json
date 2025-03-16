@@ -1,18 +1,17 @@
 {
     "projects": [
         {
-            "title": "TravelQuest",
-            "img": "travelquest.jpg",
-            "tags": ["Web", "Full-Stack", "ASP.NET"],
-            "description_short": "An ultimate one-stop service allowing you to create seamless package bookings for hotels, flights and car rentals—all with just a few clicks!",
-            "description_long": "TravelQuest is a robust and dynamic full-stack web application developed using ASP.NET, designed to streamline travel bookings for flights, hotels, and car rentals. This comprehensive platform offers an intuitive user experience, enabling seamless browsing and package bookings",
+            "title": "Ensemble - Artist Collaboration",
+            "img": "ensemble.png",
+            "tags": ["Mobile", "Social Media", "Full-Stack"],
+            "description_short": "Ensemble is a platform for networking and collaboration dedicated to artists, allowing them to grow their demographics and connect with peers in their fields!",
+            "description_long": "Ensemble is a social-media mobile application dedicated to artists. Through this platform, we provide a way for artists to share their craft with their fans and peers. Our platform encourages collaboration between artists, providing them a means to match with their peers and work on something new together!",
             "features": [
-                "Secure and Fast Data Querying",
-                "User Authentication & Authorization",
-                "Real-time Data Interaction using AJAX",
-                "Comprehensive Management Tools"
+                "Full-Stack Mobile App",
+                "Instant Messaging",
+                "Content & Event Feeds"
             ],
-            "badges": ["aspdotnet", "mssql", "javascript", "ajax"]
+            "badges": ["typescript", "node", "express", "react"]
         },
         {
             "title": "Image Processing",
@@ -41,6 +40,20 @@
             ],
             "badges": ["java", "minimax"],
             "source": "https://github.com/tyleroneil72/connect-four-mini-max?tab=readme-ov-file"
+        },
+        {
+            "title": "TravelQuest",
+            "img": "travelquest.jpg",
+            "tags": ["Web", "Full-Stack", "ASP.NET"],
+            "description_short": "An ultimate one-stop service allowing you to create seamless package bookings for hotels, flights and car rentals—all with just a few clicks!",
+            "description_long": "TravelQuest is a robust and dynamic full-stack web application developed using ASP.NET, designed to streamline travel bookings for flights, hotels, and car rentals. This comprehensive platform offers an intuitive user experience, enabling seamless browsing and package bookings",
+            "features": [
+                "Secure and Fast Data Querying",
+                "User Authentication & Authorization",
+                "Real-time Data Interaction using AJAX",
+                "Comprehensive Management Tools"
+            ],
+            "badges": ["aspdotnet", "mssql", "javascript", "ajax"]
         },
         {
             "title": "Event Scheduling API",
