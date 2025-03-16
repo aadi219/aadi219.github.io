@@ -19,7 +19,7 @@ const Project = ({
             <h4 className="font-extrabold text-md lg:text-lg text-highlight-teal font-main">
                 {project.title}
             </h4>
-            <p className="font-main text-sm lg:text-lg text-highlight-blue">
+            <p className="font-main text-sm lg:text-md text-highlight-blue">
                 {project.description_short}
             </p>
         </motion.div>

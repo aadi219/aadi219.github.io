@@ -59,7 +59,7 @@ export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
         <div
             ref={paneRef}
             id="rightPane"
-            className="relative w-full h-screen lg:pr-10 overflow-y-auto"
+            className="relative w-full h-screen lg:pr-10 overflow-y-auto hide-scroll"
         >
             <div className="min-h-[300vh]">
                 <AnimatePresence mode="wait">
@@ -95,7 +95,7 @@ const Main = (): ReactElement => {
     );
     return (
         <ScrollContext.Provider value={{ scrollToIndex }}>
-            <div className="relative w-full h-screen overflow-hidden">
+            <div className="relative w-full h-screen overflow-scroll sm:overflow-hidden">
                 {/* Background layer */}
                 <div className="absolute inset-0 z-0">
                     <WavyBackground />
@@ -113,28 +113,19 @@ const Main = (): ReactElement => {
                     </LeftPane>
                     <RightPane setScrollToIndex={setScrollToIndex}>
                         <Section id="Bio">
-                            <h2 className="pl-4 lg:pt-4">Bio</h2>
-                            <p className="lg:w-[86%] text-start text-highlight-blue">
-                                Born in 2004 in India, I was introduced to
-                                programming early in High School. Gradually
-                                developing and discovering increasingly
-                                complicated yet elegant solutions for different
-                                problems, I realised that programming perfectly
-                                encapsulated my love for problem-solving and my
-                                constant desire to innovate and improve upon my
-                                projects. <br />
-                                Since then, I have been hooked on Software
-                                Development, on a journey of steady improvement
-                                and constant discovery.
-                                <br />
-                                And during this journey I have amassed an
-                                extensive and thorough skillset covering fields
-                                such as: <br />
-                                <span className="font-semibold">
-                                    Full-Stack Development, Machine Learning &
-                                    Data Science, Database & Backend
-                                    Technologies, Project Management and more...
-                                </span>
+                            <h2 className="lg:pt-4">Bio</h2>
+                            <p className="lg:w-[86%] text-start text-[0.9em] sm:text-[1em] text-highlight-blue">
+                                I am a Software Engineer passionate about Machine Learning & Data Science.
+                                With a strong foundation in a variety of development stacks and design paradigms,
+                                I specialize in desigining and developing scalable, high-performance applications.
+                                <br className="mb-3" />
+                                Currently, I'm working as a <b className="text-highlight-teal">Student Researcher</b>, under the Office of Research & Innovation
+                                at George Brown College, researching the industry applications of Deep Learning in
+                                Computer Vision and contributing to the design and development of a robust AI-powered system that will
+                                enhance Quality Assurance and improve efficiency in the manufacturing pipeline.
+                                <br className="mb-3" />
+                                Beyond my work, I am deeply involved with my peers in the Tech Community. As <b className="text-highlight-teal">President of the Computer Science 
+                                Club</b> at George Brown College, I lead initiatives which encourages collaboration, problem-solving and innovation.
                             </p>
                         </Section>
                         <Section id="Skills">
@@ -147,7 +138,7 @@ const Main = (): ReactElement => {
                         </Section>
                     </RightPane>
                 </div>
-                <Contacts className="lg:flex gap-4 hidden fixed bottom-[4%] left-[4%]" />
+                <Contacts className="lg:flex gap-4 z-10 hidden fixed bottom-[4%] left-[4%]" />
             </div>
         </ScrollContext.Provider>
     );

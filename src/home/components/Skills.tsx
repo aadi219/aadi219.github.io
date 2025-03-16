@@ -196,10 +196,10 @@ const Skill = ({ title, items, controls, variants }: SkillProps) => {
             <p className="text-lg text-highlight-teal font-bold font-heading mb-1">{title}</p>
             <div
                 ref={containerRef}
-                className={`overflow-x-auto ${isOverflowing ? "scrolling-touch" : ""}`}
+                className={`overflow-x-auto hide-scroll ${isOverflowing ? "scrolling-touch" : ""}`}
                 style={{ whiteSpace: isOverflowing ? "nowrap" : "normal" }}
             >
-                <ul className="flex space-x-4">
+                <ul className="flex space-x-4 md:space-x-6">
                     {items.map((item, idx) => (
                         <li key={idx} className="text-highlight-blue skill-icon">
                             {item.icon}
