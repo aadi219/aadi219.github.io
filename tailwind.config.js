@@ -15,6 +15,12 @@ export default {
         "hover-dark" : "var(--bg-hover)"
       }
     },
+    screens: {
+      sm: "640px",
+      md: "720px",
+      lg: "1080px",
+      xl: "1280px"
+    }
   },
   plugins: [],
 }

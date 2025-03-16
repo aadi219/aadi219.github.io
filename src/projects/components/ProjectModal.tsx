@@ -35,7 +35,7 @@ const ProjectModal = ({
                 backdropFilter: "blur(5px)"
             }}
         >
-            <div className="modal-body z-50 rounded-2xl bg-bg-dark border-2 border-highlight-blue overflow-auto w-[50%] min-h-fit py-4">
+            <div className="modal-body z-50 rounded-2xl bg-bg-dark border-2 border-highlight-blue overflow-auto w-[90%] sm:w-[50%] min-h-fit py-4">
                 <div className="modal-header flex flex-col items-center">
                     <div className="w-full px-3 h-[40%] flex justify-center">
                         <img
@@ -48,7 +48,7 @@ const ProjectModal = ({
                         <h4 className="text-highlight-teal font-bold text-3xl font-heading">
                             {project.title}
                         </h4>
-                        <ul className="flex gap-2 justify-center">
+                        <ul className="flex px-2 sm:px-0 gap-2 justify-center">
                             {project.badges.map((badge) => (
                                 <li>
                                     <img src={badges[badge]} alt="" />
@@ -62,33 +62,34 @@ const ProjectModal = ({
                         {project.description_long}
                     </p>
                 </div>
-                {project.source ? (
-                    <div className="flex justify-center pt-5 gap-4">
-                        <Button
-                            variant="contained"
-                            href={project.source}
-                            target="_blank"
-                        >
-                            View Source Code
-                        </Button>
-                        {project.demo ? (
-                            <Button
-                                href={project.demo}
-                                target="_blank"
-                                variant="contained"
-                            >
-                                Try project demo
-                            </Button>
-                        ) : (
-                            ""
-                        )}
-                    </div>
+                <div className="flex justify-center pt-5 gap-3">
+                    <Button
+                        variant="contained"
+                        onClick={handleClose}
+                    >
+                        <span>Close</span>
+                    </Button>
+                {project.source ? 
+                    <Button
+                        variant="contained"
+                        href={project.source}
+                        target="_blank"
+                    >
+                        <i className="devicon-github-original text-3xl"></i>
+                    </Button> : "" 
+                    }
+                {project.demo ? (
+                    <Button
+                        href={project.demo}
+                        target="_blank"
+                        variant="contained"
+                    >
+                        Project Demo
+                    </Button>
                 ) : (
-                    <p className="text-highlight-teal font-main text-center pt-6">
-                        This project has a private repository. Contact me if you
-                        wish to view the project source.
-                    </p>
+                    ""
                 )}
+                </div>
             </div>
         </Modal>
     );

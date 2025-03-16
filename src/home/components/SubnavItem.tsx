@@ -19,7 +19,7 @@ const SubnavItem = ({ linkTo, index }: SubnavItemProps): ReactElement => {
         <a
             onClick={handleClick}
             href={"#" + linkTo}
-            className="w-[25%] barFill font-heading italic py-1 px-2 hover:text-bg-dark text-cyan-300"
+            className="w-[25%] barFill font-mono italic py-1 px-2 hover:text-bg-dark text-cyan-300"
         >
             .{linkTo}
         </a>
