@@ -1,5 +1,5 @@
 import { motion, useAnimation, useInView } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const skills = {
     languages: [
@@ -121,7 +121,7 @@ const Skills = () => {
         }
     }, [controls, isInView]);
 
-    const createVariants = (delay: Number) => ({
+    const createVariants = (delay: number) => ({
         hidden: {
             opacity: 0,
             x: -150,
@@ -143,25 +143,25 @@ const Skills = () => {
     return (
         <div ref={ref} id="skills">
             <Skill
-                title="Some of my frequently used languages are"
+                title="Languages"
                 items={skills.languages}
                 controls={controls}
                 variants={createVariants(0)}
             />
             <Skill
-                title="I am also proficient in the following web technologies"
+                title="Web Technologies"
                 items={skills.web}
                 controls={controls}
                 variants={createVariants(0.2)}
             />
             <Skill
-                title="My projects in Machine Learning and Data Analysis make use of the following"
+                title="Machine Learning & Data Analysis"
                 items={skills.machineLearning}
                 controls={controls}
                 variants={createVariants(0.4)}
             />
             <Skill
-                title="Additionally, many of my projects utilize the following DevOps technologies"
+                title="DevOps"
                 items={skills.devops}
                 controls={controls}
                 variants={createVariants(0.6)}
@@ -181,16 +181,32 @@ interface SkillProps {
 }
 
 const Skill = ({ title, items, controls, variants }: SkillProps) => {
+    const [isOverflowing, setIsOverflowing] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            setIsOverflowing(container.scrollWidth > container.clientWidth);
+        }
+    }, [items]);
+
     return (
         <motion.div initial="hidden" animate={controls} variants={variants}>
-            <p className="text-md mb-1">{title}</p>
-            <ul>
-                {items.map((item, idx) => (
-                    <li key={idx} className="text-highlight-blue skill-icon">
-                        {item.icon}
-                    </li>
-                ))}
-            </ul>
+            <p className="text-lg text-highlight-teal font-bold font-heading mb-1">{title}</p>
+            <div
+                ref={containerRef}
+                className={`overflow-x-auto ${isOverflowing ? "scrolling-touch" : ""}`}
+                style={{ whiteSpace: isOverflowing ? "nowrap" : "normal" }}
+            >
+                <ul className="flex space-x-4">
+                    {items.map((item, idx) => (
+                        <li key={idx} className="text-highlight-blue skill-icon">
+                            {item.icon}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </motion.div>
     );
 };

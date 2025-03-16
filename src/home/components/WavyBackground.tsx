@@ -39,8 +39,8 @@ const WavyBackground = () => {
         canvas.style("left", "0");
         canvas.style("top", "0");
         canvas.style("z-index", "-1");
-        canvas.style("width", "100%");
-        canvas.style("height", "100%");
+        canvas.style("width", "120%");
+        canvas.style("height", "120%");
         p5.noFill();
 
         if (lowPerfMode) {
@@ -62,7 +62,7 @@ const WavyBackground = () => {
             p5.mouseY >= 0 &&
             p5.mouseY <= p5.height;
 
-        p5.clear(0,0,0,0);
+        p5.clear(0,0, p5.width, p5.height);
         p5.background(7, 33, 50, 15);
 
         const width = p5.width;
@@ -91,8 +91,8 @@ const WavyBackground = () => {
                 step += 1 / lineResolution
             ) {
                 // Interpolate base position
-                let x = p5.lerp(0, width * 0.9, step);
-                let y = p5.lerp(startY, height * 0.95, step);
+                let x = p5.lerp(0, width * 1.1, step);
+                let y = p5.lerp(startY, height * 0.85, step);
 
                 // Calculate distance from mouse
                 let distToMouse = p5.dist(x, y, mouseX.current, mouseY.current);

@@ -49,9 +49,8 @@ section h2 {
     color: var(--highlight-blue);
 }
 #skills > div {
-    width: 95%;
     background-color: var(--col-dark);
-    padding: 1em;
+    padding: 0 1em;
     padding-top: 0.5em;
     margin-bottom: 2.5%;
     border-radius: 10px;
@@ -85,14 +84,6 @@ section h2 {
 }
 #main {
     display: relative;
-}
-#contacts {
-    display: flex;
-    gap: 10%;
-    position: fixed;
-    bottom: 3%;
-    padding-bottom: 1em;
-    align-items: center;
 }
 #main {
     position: relative;

@@ -8,10 +8,11 @@ import Section from "./Section.tsx";
 import Skills from "./Skills.tsx";
 import SubNav from "./SubNav.tsx";
 import WavyBackground from "./WavyBackground.tsx";
+import TypingAnimation from "./TypingAnimation.tsx";
 
 export const LeftPane = ({ children }: { children: ReactElement[] }) => {
     return (
-        <aside className="flex flex-col pane gap-3 w-[55%] pl-24">
+        <aside className="flex mb-10 flex-col pane gap-3s pl-4 lg:pl-24">
             {children}
         </aside>
     );
@@ -58,7 +59,7 @@ export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
         <div
             ref={paneRef}
             id="rightPane"
-            className="relative w-[45%] h-screen pr-10 overflow-y-auto"
+            className="relative w-full h-screen lg:pr-10 overflow-y-auto"
         >
             <div className="min-h-[300vh]">
                 <AnimatePresence mode="wait">
@@ -101,22 +102,19 @@ const Main = (): ReactElement => {
                 </div>
 
                 {/* Content layer */}
-                <div className="relative z-10 flex w-full h-full">
+                <div className="relative z-10 grid gap-3 grid-cols-1 lg:grid-cols-2 w-full h-full">
                     <LeftPane>
                         <h1 className="text-5xl font-bold heading text-highlight-blue text-nowrap font-heading">
                             Aadi Badola
                         </h1>
-                        <ul className="font-heading list-disc flex gap-5 text-highlight-teal flex-wrap">
-                            <li className="list-none">Software Engineer</li>
-                            <li>Full-Stack Developer</li>
-                            <li>Data Scientist</li>
-                        </ul>
+                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer",  "Data Scientist"]} />
+                            <Contacts className="pt-5 flex gap-4 lg:hidden" />
                         <SubNav />
                     </LeftPane>
                     <RightPane setScrollToIndex={setScrollToIndex}>
                         <Section id="Bio">
-                            <h2 className=" pt-8">Bio</h2>
-                            <p className="w-[86%] text-start text-highlight-blue">
+                            <h2 className="pl-4 lg:pt-4">Bio</h2>
+                            <p className="lg:w-[86%] text-start text-highlight-blue">
                                 Born in 2004 in India, I was introduced to
                                 programming early in High School. Gradually
                                 developing and discovering increasingly
@@ -140,16 +138,16 @@ const Main = (): ReactElement => {
                             </p>
                         </Section>
                         <Section id="Skills">
-                            <h2>Skills & Technologies</h2>
+                            <h2 className="pl-2">Skills & Technologies</h2>
                             <Skills />
                         </Section>
                         <Section id="Projects">
-                            <h2>Projects</h2>
+                            <h2 className="pl-2">Projects</h2>
                             <Projects projects={projects} />
                         </Section>
                     </RightPane>
                 </div>
-                <Contacts />
+                <Contacts className="lg:flex gap-4 hidden fixed bottom-[4%] left-[4%]" />
             </div>
         </ScrollContext.Provider>
     );

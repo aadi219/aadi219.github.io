@@ -16,10 +16,10 @@ const Project = ({
             variants={variants}
             className="bg-col-dark border-2 border-bg-med rounded-md py-2 px-3 mb-3"
         >
-            <h4 className="font-extrabold text-lg text-highlight-teal font-main">
+            <h4 className="font-extrabold text-md lg:text-lg text-highlight-teal font-main">
                 {project.title}
             </h4>
-            <p className="font-main text-highlight-blue">
+            <p className="font-main text-sm lg:text-lg text-highlight-blue">
                 {project.description_short}
             </p>
         </motion.div>
@@ -70,7 +70,7 @@ const Projects = ({ projects }: { projects: ProjectData[] }) => {
                     project={project}
                 />
             ))}
-            <div className="flex justify-start">
+            <div className="lg:flex justify-start hidden">
                 <Link to="/projects">
                     <div
                         id="projects-button"
