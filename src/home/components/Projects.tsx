@@ -14,7 +14,16 @@ const Project = ({
     return (
         <motion.div
             variants={variants}
-            className="bg-col-dark border-2 border-bg-med rounded-md py-2 px-3 mb-3"
+            style={{
+                background: "rgba(255,255,255,0.01)",
+                borderRadius: "1rem",
+                border: "1px solid #0d90bb",
+                boxShadow: "0 4px 30px rgba(0,0,0,0.1)",
+                backdropFilter: "blur(2px)",
+                WebkitBackdropFilter: "blur(8px)",
+                padding: "0.8rem 0.75rem",
+                marginBottom: "1.5rem"
+            }}
         >
             <h4 className="font-extrabold text-md lg:text-lg text-highlight-teal font-main">
                 {project.title}

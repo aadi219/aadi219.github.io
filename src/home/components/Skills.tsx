@@ -192,7 +192,21 @@ const Skill = ({ title, items, controls, variants }: SkillProps) => {
     }, [items]);
 
     return (
-        <motion.div initial="hidden" animate={controls} variants={variants}>
+        <motion.div 
+        initial="hidden" 
+        animate={controls}
+        variants={variants}
+        style={{
+            background: "rgba(255,255,255,0.01)",
+            borderRadius: "1rem",
+            border: "1px solid #0d90bb",
+            boxShadow: "0 4px 30px rgba(0,0,0,0.1)",
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(8px)",
+            paddingTop: "0.8rem",
+            marginBottom: "1.5rem"
+        }}
+        >
             <p className="text-lg text-highlight-teal font-bold font-heading mb-1">{title}</p>
             <div
                 ref={containerRef}
