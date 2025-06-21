@@ -119,13 +119,13 @@ const Main = (): ReactElement => {
                                 With a strong foundation in a variety of development stacks and design paradigms,
                                 I specialize in desigining and developing scalable, high-performance applications.
                                 <br className="mb-3" />
-                                Currently, I'm working as a <b className="text-highlight-teal">Student Researcher</b>, under the Office of Research & Innovation
+								Currently, I'm working as a <b className="text-highlight-teal">Software Developer</b> at Antek Logistics, contributing to the
+								development of Automation Workflows to streamline daily operations, replacing manual processes with efficient, event-driven systems.
+                                <br className="mb-3" />
+                                I'm also working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
                                 at George Brown College, researching the industry applications of Deep Learning in
                                 Computer Vision and contributing to the design and development of a robust AI-powered system that will
                                 enhance Quality Assurance and improve efficiency in the manufacturing pipeline.
-                                <br className="mb-3" />
-                                Beyond my work, I am deeply involved with my peers in the Tech Community. As <b className="text-highlight-teal">President of the Computer Science 
-                                Club</b> at George Brown College, I lead initiatives which encourages collaboration, problem-solving and innovation.
                             </p>
                         </Section>
                         <Section id="Skills">
