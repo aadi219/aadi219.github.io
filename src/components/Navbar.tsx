@@ -23,6 +23,7 @@ const Navbar = (): ReactElement => {
             <NavLink addr="/" text="HOME" />
             <NavLink addr="/about" text="ABOUT" />
             <NavLink addr="/projects" text="PROJECTS" />
+            <NavLink addr="/blog" text="BLOG" />
             <a
                 className="md:px-14 font-main py-2 text-highlight-teal hover:text-highlight-blue transition-colors duration-300"
                 href="https://drive.google.com/file/d/1sg_81CMjQP5hCaR5_TlrEPSvJIhWKCW8/view?usp=sharing"

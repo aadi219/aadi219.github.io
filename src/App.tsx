@@ -1,5 +1,7 @@
 import About from "./about/About.tsx";
 import "./App.css";
+import Blog from "./blog/Blog.tsx";
+import BlogPost from "./blog/BlogPost.tsx";
 import Home from "./home/Home";
 import Projects from "./projects/Projects";
 
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
     {
         path: "/about",
         element: <About />
+    },
+    {
+        path: "/blog",
+        element: <Blog />
+    },
+    {
+        path: "/blog/:slug",
+        element: <BlogPost />
     }
 ]);
 function App() {
