@@ -1,4 +1,3 @@
-import { AnimatePresence, motion, useScroll } from "motion/react";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import projectData from "../../../src/data/projects.json";
 import Contacts from "../../components/Contacts.tsx";
@@ -24,65 +23,38 @@ interface RightPaneProps {
 }
 
 export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
-    const paneRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        container: paneRef,
-        offset: ["start start", "end end"]
-    });
-    const [visibleIndex, setVisibleIndex] = useState(0);
+    const paneRef = useRef<HTMLDivElement>(null);
+    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const scrollToIndex = (index: number) => {
-        if (paneRef.current) {
-            const pane = paneRef.current as HTMLElement;
-            const scrollHeight = pane.scrollHeight - pane.clientHeight;
-            const targetScroll = (index / (children.length - 1)) * scrollHeight;
-            pane.scrollTo({
-                top: targetScroll,
-                behavior: "smooth"
-            });
+        const section = sectionRefs.current[index];
+        const pane = paneRef.current;
+        if (section && pane) {
+            pane.scrollTo({ top: section.offsetTop, behavior: "smooth" });
         }
     };
 
     useEffect(() => {
         setScrollToIndex(() => scrollToIndex);
-        const handleScroll = () => {
-            const index = Math.round(
-                scrollYProgress.get() * (children.length - 1)
-            );
-            setVisibleIndex(index);
-        };
-        const unsubscribe = scrollYProgress.on("change", handleScroll);
-        return () => unsubscribe();
-    }, [setScrollToIndex, scrollYProgress.get(), children.length]);
+    }, [setScrollToIndex]);
 
     return (
         <div
             ref={paneRef}
             id="rightPane"
-            className="relative w-full h-screen lg:pr-10 overflow-y-auto hide-scroll"
+            className="relative w-full h-full lg:pr-10 overflow-y-auto hide-scroll"
         >
-            <div className="min-h-[300vh]">
-                <AnimatePresence mode="wait">
-                    {children.map(
-                        (child, index) =>
-                            index === visibleIndex && (
-                                <motion.div
-                                    key={index}
-                                    className="sticky top-0 h-screen text-start"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -50 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: "easeInOut"
-                                    }}
-                                >
-                                    {child}
-                                </motion.div>
-                            )
-                    )}
-                </AnimatePresence>
-            </div>
+            {children.map((child, index) => (
+                <div
+                    key={index}
+                    ref={(el) => {
+                        sectionRefs.current[index] = el;
+                    }}
+                    className="text-start"
+                >
+                    {child}
+                </div>
+            ))}
         </div>
     );
 };
@@ -95,7 +67,7 @@ const Main = (): ReactElement => {
     );
     return (
         <ScrollContext.Provider value={{ scrollToIndex }}>
-            <div className="relative w-full h-screen overflow-hidden">
+            <div className="relative w-full h-full overflow-hidden">
                 {/* Background layer */}
                 <div className="absolute overflow-hidden inset-0 z-0">
                     <WavyBackground />
