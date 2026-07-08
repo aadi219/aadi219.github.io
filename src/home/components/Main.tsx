@@ -50,7 +50,7 @@ export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
                     ref={(el) => {
                         sectionRefs.current[index] = el;
                     }}
-                    className="text-start"
+                    className="text-start pb-2"
                 >
                     {child}
                 </div>
@@ -63,7 +63,7 @@ const Main = (): ReactElement => {
     let { projects } = projectData;
     projects = projects.slice(0, 4);
     const [scrollToIndex, setScrollToIndex] = useState<(index: number) => void>(
-        () => () => {}
+        () => () => { }
     );
     return (
         <ScrollContext.Provider value={{ scrollToIndex }}>
@@ -79,8 +79,8 @@ const Main = (): ReactElement => {
                         <h1 className="text-5xl font-bold heading text-highlight-blue text-nowrap font-heading">
                             Aadi Badola
                         </h1>
-                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer",  "Data Scientist"]} />
-                            <Contacts className="pt-5 flex gap-4 lg:hidden" />
+                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer", "Data Scientist"]} />
+                        <Contacts className="pt-5 flex gap-4 lg:hidden" />
                         <SubNav />
                     </LeftPane>
                     <RightPane setScrollToIndex={setScrollToIndex}>
@@ -91,13 +91,15 @@ const Main = (): ReactElement => {
                                 With a strong foundation in a variety of development stacks and design paradigms,
                                 I specialize in desigining and developing scalable, high-performance applications.
                                 <br className="mb-3" />
-								Currently, I'm working as a <b className="text-highlight-teal">Software Developer</b> at Antek Logistics, contributing to the
-								development of Automation Workflows to streamline daily operations, replacing manual processes with efficient, event-driven systems.
-                                <br className="mb-3" />
-                                I'm also working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
-                                at George Brown College, researching the industry applications of Deep Learning in
-                                Computer Vision and contributing to the design and development of a robust AI-powered system that will
+                                Currently, I'm working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
+                                at <b>George Brown Polytechnic</b>, researching the industry applications of Artificial Intelligence & Computer Vision,
+                                contributing to the design and development of an AI-powered system that will
                                 enhance Quality Assurance and improve efficiency in the manufacturing pipeline.
+                                <br className="mb-3" />
+                                I have previously worked <b className="text-highlight-teal">Software Developer</b> at <b>Antek Logistics</b>, contributing to the
+                                development and maintenance of internal automation tools and worklfows to streamline daily operations, replacing manual processes with efficient, event-driven systems.
+                                I was also a core, full-stack developer of the <b>Claro Customs AI</b> platform where I maintained and extended database entities, REST APIs, intergations with
+                                third-party services, and long-running background processes; automating shipment management, tracking, and customs compliance.
                             </p>
                         </Section>
                         <Section id="Skills">
