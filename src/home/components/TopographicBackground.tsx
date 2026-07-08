@@ -14,16 +14,17 @@ const TopographicBackground = () => {
     const mouseX = useRef(0);
     const mouseY = useRef(0);
     const isMouseInCanvas = useRef(false);
+    const resizeObserverRef = useRef<ResizeObserver | null>(null);
 
     // performance tuning
     const drawEveryNthFrame = 4;
-    const cellSize = lowPerfMode ? 44 : 30;
-    const noiseScale = 0.12;
+    const cellSize = lowPerfMode ? 30 : 10;
+    const noiseScale = 0.025;
     const octaves = lowPerfMode ? 2 : 3;
     const contourCount = lowPerfMode ? 6 : 10;
     const timeStep = 0.0025;
     const mouseBumpRadius = 220;
-    const mouseBumpStrength = 0.35;
+    const mouseBumpStrength = 0.45;
 
     useEffect(() => {
         const isLowPowered = navigator.hardwareConcurrency <= 4;
@@ -31,24 +32,39 @@ const TopographicBackground = () => {
 
         return () => {
             time.current = 0;
+            resizeObserverRef.current?.disconnect();
         };
     }, []);
 
     const setup = (p5: p5Types, canvasParentRef: Element) => {
+        const { width, height } = canvasParentRef.getBoundingClientRect();
         const canvas = p5
-            .createCanvas(window.innerWidth, window.innerHeight)
+            .createCanvas(width || window.innerWidth, height || window.innerHeight)
             .parent(canvasParentRef);
         canvas.style("position", "absolute");
         canvas.style("left", "0");
         canvas.style("top", "0");
         canvas.style("z-index", "-1");
-        canvas.style("width", "100%");
-        canvas.style("height", "100%");
         p5.noFill();
 
         if (lowPerfMode) {
             p5.pixelDensity(0.5);
         }
+
+        // The parent's real size may not be settled yet (or may change with layout later)
+        // so keep the canvas buffer in sync as it changes
+        const observer = new ResizeObserver((entries) => {
+            const entry = entries[0];
+            if (!entry) return;
+
+            const { width: observedWidth, height: observedHeight } =
+                entry.contentRect;
+            if (observedWidth > 0 && observedHeight > 0) {
+                p5.resizeCanvas(observedWidth, observedHeight);
+            }
+        });
+        observer.observe(canvasParentRef);
+        resizeObserverRef.current = observer;
     };
 
     const draw = (p5: p5Types) => {
@@ -117,13 +133,7 @@ const TopographicBackground = () => {
         time.current += timeStep;
     };
 
-    const windowResized = (p5: p5Types) => {
-        if (frameCount.current % 10 === 0) {
-            p5.resizeCanvas(window.innerWidth, window.innerHeight);
-        }
-    };
-
-    return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
+    return <Sketch setup={setup} draw={draw} />;
 };
 
 export default TopographicBackground;
