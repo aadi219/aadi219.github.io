@@ -55,3 +55,41 @@ export const generateHeightfield = (
 
     return field;
 };
+
+/**
+ * Raises the heightfield within a radius of a point (in the same pixel
+ * space as cellSize), with a smooth falloff toward the edge of the radius.
+ * Only visits cells inside the affected bounding box.
+ */
+export const applyRadialBump = (
+    field: Float32Array,
+    cols: number,
+    rows: number,
+    cellSize: number,
+    centerX: number,
+    centerY: number,
+    radius: number,
+    strength: number
+): void => {
+    const radiusCells = radius / cellSize;
+    if (radiusCells <= 0) return;
+
+    const centerCol = centerX / cellSize;
+    const centerRow = centerY / cellSize;
+    const minCol = Math.max(0, Math.floor(centerCol - radiusCells));
+    const maxCol = Math.min(cols - 1, Math.ceil(centerCol + radiusCells));
+    const minRow = Math.max(0, Math.floor(centerRow - radiusCells));
+    const maxRow = Math.min(rows - 1, Math.ceil(centerRow + radiusCells));
+
+    for (let row = minRow; row <= maxRow; row++) {
+        for (let col = minCol; col <= maxCol; col++) {
+            const dx = col - centerCol;
+            const dy = row - centerRow;
+            const dist = Math.sqrt(dx * dx + dy * dy) / radiusCells;
+            if (dist >= 1) continue;
+
+            const falloff = (1 - dist) ** 2;
+            field[row * cols + col] += falloff * strength;
+        }
+    }
+};

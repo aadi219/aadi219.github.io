@@ -1,7 +1,7 @@
 import p5Types from "p5";
 import { useEffect, useRef, useState } from "react";
 import Sketch from "react-p5";
-import { generateHeightfield } from "../utils/heightfield";
+import { applyRadialBump, generateHeightfield } from "../utils/heightfield";
 import { extractContours } from "../utils/marchingSquares";
 
 const highlightTeal = { r: 122, g: 168, b: 159 };
@@ -11,6 +11,9 @@ const TopographicBackground = () => {
     const time = useRef(0);
     const frameCount = useRef(0);
     const [lowPerfMode, setLowPerfMode] = useState(false);
+    const mouseX = useRef(0);
+    const mouseY = useRef(0);
+    const isMouseInCanvas = useRef(false);
 
     // performance tuning
     const drawEveryNthFrame = 4;
@@ -19,6 +22,8 @@ const TopographicBackground = () => {
     const octaves = lowPerfMode ? 2 : 3;
     const contourCount = lowPerfMode ? 6 : 10;
     const timeStep = 0.0025;
+    const mouseBumpRadius = 220;
+    const mouseBumpStrength = 0.35;
 
     useEffect(() => {
         const isLowPowered = navigator.hardwareConcurrency <= 4;
@@ -50,6 +55,14 @@ const TopographicBackground = () => {
         frameCount.current++;
         if (frameCount.current % drawEveryNthFrame !== 0) return;
 
+        mouseX.current = p5.mouseX;
+        mouseY.current = p5.mouseY;
+        isMouseInCanvas.current =
+            p5.mouseX >= 0 &&
+            p5.mouseX <= p5.width &&
+            p5.mouseY >= 0 &&
+            p5.mouseY <= p5.height;
+
         p5.clear(0, 0, p5.width, p5.height);
         p5.background(31, 31, 40, 20);
 
@@ -63,6 +76,19 @@ const TopographicBackground = () => {
             time: time.current,
             octaves,
         });
+
+        if (isMouseInCanvas.current) {
+            applyRadialBump(
+                field,
+                cols,
+                rows,
+                cellSize,
+                mouseX.current,
+                mouseY.current,
+                mouseBumpRadius,
+                mouseBumpStrength
+            );
+        }
 
         const thresholds = Array.from(
             { length: contourCount },
