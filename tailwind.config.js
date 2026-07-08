@@ -12,7 +12,8 @@ export default {
         "highlight-blue" : "var(--highlight-blue)",
         "highlight-teal" : "var(--highlight-teal)",
         "col-dark" : "var(--col-dark)",
-        "hover-dark" : "var(--bg-hover)"
+        "hover-dark" : "var(--bg-hover)",
+        "accent-green" : "var(--accent-green)"
       }
     },
     screens: {

@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-    --col-dark: #010125;
-    --bg-dark: #072132;
-    /* --bg-dark: #002a48; */
-    --bg-hover: #071a27;
-    --bg-med: #0d90bb;
-    --highlight-blue: #5fcbec;
-    --highlight-teal: #4afebd;
+    --col-dark: #16161d;
+    --bg-dark: #1f1f28;
+    --bg-hover: #2a2a37;
+    --bg-med: #7e9cd8;
+    --highlight-blue: #7fb4ca;
+    --highlight-teal: #7aa89f;
+    --accent-green: #98bb6c;
 }
 
 @font-face {
@@ -80,7 +80,7 @@ section h2 {
         text-shadow ease-in-out 500ms;
 }
 #projects-button:hover {
-    background-color: #36be8c;
+    background-color: var(--accent-green);
 }
 #main {
     display: relative;
@@ -143,7 +143,7 @@ section h2 {
     transition: linear 0.4s;
 }
 .btn-fill:hover {
-    box-shadow: inset 400px 0 0 0 #36be8c;
+    box-shadow: inset 400px 0 0 0 var(--accent-green);
     color: white;
 }
 

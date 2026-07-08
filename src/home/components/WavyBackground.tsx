@@ -63,13 +63,13 @@ const WavyBackground = () => {
             p5.mouseY <= p5.height;
 
         p5.clear(0,0, p5.width, p5.height);
-        p5.background(7, 33, 50, 15);
+        p5.background(31, 31, 40, 15);
 
         const width = p5.width;
         const height = p5.height;
 
-        const highlightBlue = { r: 95, g: 203, b: 236 };
-        const highlightTeal = { r: 74, g: 254, b: 189 };
+        const highlightBlue = { r: 127, g: 180, b: 202 };
+        const highlightTeal = { r: 122, g: 168, b: 159 };
 
         const mouseInfluenceRadius = Math.min(width, height) * 0.25;
 

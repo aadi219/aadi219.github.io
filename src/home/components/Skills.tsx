@@ -199,7 +199,7 @@ const Skill = ({ title, items, controls, variants }: SkillProps) => {
         style={{
             background: "rgba(255,255,255,0.01)",
             borderRadius: "1rem",
-            border: "1px solid #0d90bb",
+            border: "1px solid var(--bg-med)",
             boxShadow: "0 4px 30px rgba(0,0,0,0.1)",
             backdropFilter: "blur(2px)",
             WebkitBackdropFilter: "blur(8px)",
