@@ -6,7 +6,7 @@ import Projects from "./Projects.tsx";
 import Section from "./Section.tsx";
 import Skills from "./Skills.tsx";
 import SubNav from "./SubNav.tsx";
-import WavyBackground from "./WavyBackground.tsx";
+import TopographicBackground from "./TopographicBackground.tsx";
 import TypingAnimation from "./TypingAnimation.tsx";
 
 export const LeftPane = ({ children }: { children: ReactElement[] }) => {
@@ -70,7 +70,7 @@ const Main = (): ReactElement => {
             <div className="relative w-full h-full overflow-hidden">
                 {/* Background layer */}
                 <div className="absolute overflow-hidden inset-0 z-0">
-                    <WavyBackground />
+                    <TopographicBackground />
                 </div>
 
                 {/* Content layer */}
