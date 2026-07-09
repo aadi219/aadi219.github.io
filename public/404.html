@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Aadi Badola</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // GitHub Pages serves this file for any path it doesn't recognize as a
+      // real file (e.g. /blog/some-post). It encodes the requested path into
+      // a query string and redirects to the site root, where the decode
+      // script in index.html's <head> restores the real URL via
+      // history.replaceState before the router mounts.
+      // pathSegmentsToKeep = 0 because the site is served from the domain
+      // root (aadibadola.com), not a /reponame/ subpath.
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
