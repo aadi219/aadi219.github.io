@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -6,8 +6,11 @@ import remarkMath from "remark-math";
 import remarkFlexibleMarkers from "remark-flexible-markers";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
+import rehypeSlug from "rehype-slug";
 import type { Components } from "react-markdown";
 import { getPostBySlug } from "../lib/posts";
+import { extractHeadings } from "../lib/headings";
+import TableOfContents from "./TableOfContents";
 import "katex/dist/katex.min.css";
 import "../blog.css";
 
@@ -63,6 +66,11 @@ const markdownComponents: Components = {
 
 const BlogPostMain = ({ slug }: { slug?: string }) => {
     const post = slug ? getPostBySlug(slug) : undefined;
+    const headings = useMemo(
+        () => (post ? extractHeadings(post.content) : []),
+        [post]
+    );
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         document.title = post ? `${post.title} | Aadi Badola` : "Aadi Badola";
@@ -87,8 +95,15 @@ const BlogPostMain = ({ slug }: { slug?: string }) => {
     }
 
     return (
-        <div className="w-full h-full overflow-y-auto px-4 md:relative md:top-[40px] pb-10">
-            <div className="md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
+        <div
+            ref={scrollContainerRef}
+            className="w-full h-full overflow-y-auto scroll-smooth px-4 md:relative md:top-[40px] pb-10"
+        >
+            <div className="md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto lg:relative">
+                <TableOfContents
+                    headings={headings}
+                    containerRef={scrollContainerRef}
+                />
                 <Link
                     to="/blog"
                     className="font-main text-highlight-teal hover:text-highlight-blue transition-colors duration-300"
@@ -104,7 +119,7 @@ const BlogPostMain = ({ slug }: { slug?: string }) => {
                 <div className="blog-content">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm, remarkMath, remarkFlexibleMarkers]}
-                        rehypePlugins={[rehypeKatex, rehypeHighlight]}
+                        rehypePlugins={[rehypeSlug, rehypeKatex, rehypeHighlight]}
                         components={markdownComponents}
                     >
                         {post.content}

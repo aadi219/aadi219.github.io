@@ -38,6 +38,11 @@
     font-size: 1.3rem;
 }
 
+.blog-content h2,
+.blog-content h3 {
+    scroll-margin-top: 6rem;
+}
+
 .blog-content p {
     margin-bottom: 1.1rem;
 }
