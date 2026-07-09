@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkFlexibleMarkers from "remark-flexible-markers";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
 import type { Components } from "react-markdown";
@@ -14,7 +15,8 @@ const formatDate = (date: string): string =>
     new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
-        day: "numeric"
+        day: "numeric",
+        timeZone: "UTC"
     });
 
 const markdownComponents: Components = {
@@ -101,7 +103,7 @@ const BlogPostMain = ({ slug }: { slug?: string }) => {
                 </p>
                 <div className="blog-content">
                     <ReactMarkdown
-                        remarkPlugins={[remarkGfm, remarkMath]}
+                        remarkPlugins={[remarkGfm, remarkMath, remarkFlexibleMarkers]}
                         rehypePlugins={[rehypeKatex, rehypeHighlight]}
                         components={markdownComponents}
                     >
