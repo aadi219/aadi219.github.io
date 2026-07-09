@@ -21,8 +21,10 @@ const Navbar = (): ReactElement => {
     return (
         <div className="w-full flex justify-between px-4 md:px-0 md:justify-evenly text-xl">
             <NavLink addr="/" text="HOME" />
-            <NavLink addr="/about" text="ABOUT" />
+{/* 
+			<NavLink addr="/about" text="ABOUT" />
             <NavLink addr="/projects" text="PROJECTS" />
+*/}
             <NavLink addr="/blog" text="BLOG" />
             <a
                 className="md:px-14 font-main py-2 text-highlight-teal hover:text-highlight-blue transition-colors duration-300"

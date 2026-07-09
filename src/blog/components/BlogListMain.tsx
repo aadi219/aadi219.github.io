@@ -14,7 +14,6 @@ const BlogListMain = () => {
     return (
         <div className="w-full h-full overflow-y-auto px-4 md:relative md:top-[40px] pb-10 text-left">
             <div className="md:max-w-xl lg:max-w-2xl xl:max-w-3xl mx-auto">
-                <h2 className="font-heading text-highlight-blue mb-6">Blog</h2>
                 {posts.length === 0 ? (
                     <p className="font-main text-white">
                         No posts yet — check back soon.
