@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { RESUME_URL } from "../../data/constants";
 import ExperienceData from "../../data/ExperienceData";
 
+const textShadow = "0 1px 8px rgba(22, 22, 29, 0.85)";
+
 const Experience = ({
     experience,
     variants
@@ -28,17 +30,17 @@ const Experience = ({
             variants={variants}
             onMouseEnter={() => isDesktop && setExpanded(true)}
             onMouseLeave={() => isDesktop && setExpanded(false)}
-            style={{
-                background: "rgba(255,255,255,0.01)",
-                borderRadius: "1rem",
-                border: "1px solid var(--bg-med)",
-                boxShadow: "0 4px 30px rgba(0,0,0,0.1)",
-                backdropFilter: "blur(2px)",
-                WebkitBackdropFilter: "blur(8px)",
-                padding: "0.8rem 0.75rem",
-                marginBottom: "1.5rem"
-            }}
+            className="relative pl-6 pb-6 last:pb-1"
         >
+            <span
+                className="absolute left-0 top-[0.4rem] w-2.5 h-2.5 rounded-full transition-colors duration-300"
+                style={{
+                    backgroundColor: expanded
+                        ? "var(--highlight-teal)"
+                        : "var(--bg-med)",
+                    boxShadow: "0 0 0 4px var(--col-dark)"
+                }}
+            />
             <button
                 type="button"
                 onClick={() => !isDesktop && setExpanded((prev) => !prev)}
@@ -46,11 +48,17 @@ const Experience = ({
                 className={`w-full text-left ${isDesktop ? "cursor-default" : "cursor-pointer"}`}
             >
                 <div className="flex justify-between items-baseline gap-2">
-                    <h4 className="font-extrabold text-md lg:text-lg text-highlight-teal font-main">
+                    <h4
+                        className="font-extrabold text-md lg:text-lg text-highlight-teal font-main"
+                        style={{ textShadow }}
+                    >
                         {experience.role}
                     </h4>
                     <div className="flex items-center gap-2 shrink-0">
-                        <span className="font-main text-xs lg:text-sm text-highlight-blue whitespace-nowrap">
+                        <span
+                            className="font-main text-xs lg:text-sm text-highlight-blue whitespace-nowrap"
+                            style={{ textShadow }}
+                        >
                             {experience.startDate} — {experience.endDate}
                         </span>
                         <motion.span
@@ -62,11 +70,17 @@ const Experience = ({
                         </motion.span>
                     </div>
                 </div>
-                <p className="font-main text-sm lg:text-md italic text-highlight-blue">
+                <p
+                    className="font-main text-sm lg:text-md italic text-highlight-blue"
+                    style={{ textShadow }}
+                >
                     {experience.company}
                 </p>
                 {experience.description && (
-                    <p className="font-main text-sm lg:text-md text-highlight-blue">
+                    <p
+                        className="font-main text-sm lg:text-md text-highlight-blue"
+                        style={{ textShadow }}
+                    >
                         {experience.description}
                     </p>
                 )}
@@ -81,11 +95,12 @@ const Experience = ({
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         style={{ overflow: "hidden" }}
                     >
-                        <ul className="list-disc list-outside pl-5 pt-2 flex flex-col gap-1">
+                        <ul className="flex flex-col gap-1 pt-2 pl-4 border-l border-highlight-teal/20">
                             {experience.details.map((point, idx) => (
                                 <li
                                     key={idx}
                                     className="font-main text-sm lg:text-md text-highlight-blue"
+                                    style={{ textShadow }}
                                 >
                                     {point}
                                 </li>
@@ -133,8 +148,9 @@ const ExperienceList = ({ experience }: { experience: ExperienceData[] }) => {
             ref={ref}
             initial="hidden"
             animate={controls}
-            className="flex flex-col mt-2 mb-4"
+            className="relative flex flex-col mt-2 mb-4"
         >
+            <div className="absolute left-[4px] top-2 bottom-8 w-px bg-highlight-teal/20" />
             {experience.map((item, idx) => (
                 <Experience
                     variants={createVariants(idx * 0.2)}
@@ -142,7 +158,7 @@ const ExperienceList = ({ experience }: { experience: ExperienceData[] }) => {
                     experience={item}
                 />
             ))}
-            <div className="lg:flex justify-start hidden">
+            <div className="lg:flex justify-start hidden pl-6">
                 <a href={RESUME_URL} target="_blank" rel="noreferrer">
                     <div
                         id="experience-button"
