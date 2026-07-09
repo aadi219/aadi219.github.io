@@ -101,13 +101,13 @@ const Main = (): ReactElement => {
                                 third-party services, and long-running background processes; automating shipment management, tracking, and customs compliance.
                             </p>
                         </Section>
-                        <Section id="Skills">
-                            <h2 className="pl-2">Skills & Technologies</h2>
-                            <Skills />
-                        </Section>
                         <Section id="Experience">
                             <h2 className="pl-2">Experience</h2>
                             <Experience experience={experience} />
+                        </Section>
+                        <Section id="Skills">
+                            <h2 className="pl-2">Skills & Technologies</h2>
+                            <Skills />
                         </Section>
                     </RightPane>
                 </div>

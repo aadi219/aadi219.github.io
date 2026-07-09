@@ -1,5 +1,8 @@
 import { motion, useAnimation, useInView } from "motion/react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+
+const textShadow = "0 1px 8px rgba(22, 22, 29, 0.85)";
+const iconShadow = "drop-shadow(0 1px 6px rgba(22, 22, 29, 0.85))";
 
 const skills = {
     languages: [
@@ -181,46 +184,25 @@ interface SkillProps {
 }
 
 const Skill = ({ title, items, controls, variants }: SkillProps) => {
-    const [isOverflowing, setIsOverflowing] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const container = containerRef.current;
-        if (container) {
-            setIsOverflowing(container.scrollWidth > container.clientWidth);
-        }
-    }, [items]);
-
     return (
-        <motion.div 
-        initial="hidden" 
-        animate={controls}
-        variants={variants}
-        style={{
-            background: "rgba(255,255,255,0.01)",
-            borderRadius: "1rem",
-            border: "1px solid var(--bg-med)",
-            boxShadow: "0 4px 30px rgba(0,0,0,0.1)",
-            backdropFilter: "blur(2px)",
-            WebkitBackdropFilter: "blur(8px)",
-            paddingTop: "0.8rem",
-            marginBottom: "1.5rem"
-        }}
-        >
-            <p className="text-lg text-highlight-teal font-bold font-heading mb-1">{title}</p>
-            <div
-                ref={containerRef}
-                className={`overflow-x-auto hide-scroll ${isOverflowing ? "scrolling-touch" : ""}`}
-                style={{ whiteSpace: isOverflowing ? "nowrap" : "normal" }}
+        <motion.div initial="hidden" animate={controls} variants={variants}>
+            <p
+                className="text-lg text-highlight-teal font-bold font-heading mb-2"
+                style={{ textShadow }}
             >
-                <ul className="flex space-x-4 md:space-x-6">
-                    {items.map((item, idx) => (
-                        <li key={idx} className="text-highlight-blue skill-icon">
-                            {item.icon}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                {title}
+            </p>
+            <ul className="flex flex-wrap gap-4 md:gap-6">
+                {items.map((item, idx) => (
+                    <li
+                        key={idx}
+                        className="text-highlight-blue skill-icon"
+                        style={{ filter: iconShadow }}
+                    >
+                        {item.icon}
+                    </li>
+                ))}
+            </ul>
         </motion.div>
     );
 };
