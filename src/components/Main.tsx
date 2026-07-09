@@ -5,9 +5,8 @@ const Main = ({ children }: { children: ReactElement }) => {
         <div
             id="main"
             className={
-                "border-2 border-teal-200 p-4 home-main flex gap-0 overflow-y-hidden"
+                "border-2 border-teal-200 p-4 home-main flex gap-0 overflow-y-hidden h-full"
             }
-            style={{ height: window.innerHeight - 70 + "px" }}
         >
             {children}
         </div>

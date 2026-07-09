@@ -78,7 +78,7 @@ const Main = (): ReactElement => {
                         <h1 className="text-5xl font-bold heading text-highlight-blue text-nowrap font-heading">
                             Aadi Badola
                         </h1>
-                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer", "Data Scientist"]} />
+                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer", "AI Researcher"]} />
                         <Contacts className="pt-5 flex gap-4 lg:hidden" />
                         <SubNav />
                     </LeftPane>
@@ -88,7 +88,7 @@ const Main = (): ReactElement => {
                             <p className="lg:w-[86%] text-start text-[0.9em] sm:text-[1em] text-highlight-blue">
                                 I am a Software Engineer passionate about Machine Learning & Data Science.
                                 With a strong foundation in a variety of development stacks and design paradigms,
-                                I specialize in desigining and developing scalable, high-performance applications.
+                                I specialize in desigining and developing innovative software solutions.
                                 <br className="mb-3" />
                                 Currently, I'm working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
                                 at <b>George Brown Polytechnic</b>, researching the industry applications of Artificial Intelligence & Computer Vision,

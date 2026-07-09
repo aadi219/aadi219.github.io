@@ -36,8 +36,7 @@ const Experience = ({
                 style={{
                     backgroundColor: expanded
                         ? "var(--highlight-teal)"
-                        : "var(--bg-med)",
-                    boxShadow: "0 0 0 4px var(--col-dark)"
+                        : "var(--bg-med)"
                 }}
             />
             <button
@@ -94,7 +93,7 @@ const Experience = ({
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         style={{ overflow: "hidden" }}
                     >
-                        <ul className="flex flex-col gap-1 pt-2 pl-4 border-l border-highlight-teal/20">
+                        <ul className="flex flex-col gap-1 pt-2 pl-4">
                             {experience.details.map((point, idx) => (
                                 <li
                                     key={idx}
