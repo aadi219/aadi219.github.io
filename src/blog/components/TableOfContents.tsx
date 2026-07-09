@@ -70,32 +70,47 @@ const TableOfContents = ({
 
     return (
         <div className="hidden lg:block lg:absolute lg:top-0 lg:bottom-0 lg:left-full lg:ml-6 lg:w-44 xl:w-52 text-left lg:pl-3 md:pl-1">
-            <nav aria-label="Table of contents" className="lg:sticky lg:top-28">
+            <nav
+                aria-label="Table of contents"
+                className="lg:sticky lg:top-20 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto"
+            >
                 <p className="font-heading text-xs tracking-widest uppercase text-highlight-blue mb-3">
                     On this page
                 </p>
                 <ul className="flex flex-col gap-2">
-                    {tree.map((node) => (
-                        <li key={node.id}>
-                            <a href={`#${node.id}`} className={linkClass(node.id)}>
-                                {node.text}
-                            </a>
-                            {node.children.length > 0 && (
-                                <ul className="flex flex-col gap-2 mt-2 pl-3 border-l border-bg-med">
-                                    {node.children.map((child) => (
-                                        <li key={child.id}>
-                                            <a
-                                                href={`#${child.id}`}
-                                                className={linkClass(child.id)}
-                                            >
-                                                {child.text}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
-                    ))}
+                    {tree.map((node) => {
+                        const isGroupActive =
+                            node.id === activeId ||
+                            node.children.some((child) => child.id === activeId);
+
+                        return (
+                            <li key={node.id} className="group">
+                                <a href={`#${node.id}`} className={linkClass(node.id)}>
+                                    {node.text}
+                                </a>
+                                {node.children.length > 0 && (
+                                    <ul
+                                        className={`flex flex-col gap-2 mt-2 pl-3 border-l border-bg-med overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+                                            isGroupActive
+                                                ? "max-h-96"
+                                                : "max-h-0 group-hover:max-h-96 group-focus-within:max-h-96"
+                                        }`}
+                                    >
+                                        {node.children.map((child) => (
+                                            <li key={child.id}>
+                                                <a
+                                                    href={`#${child.id}`}
+                                                    className={linkClass(child.id)}
+                                                >
+                                                    {child.text}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </li>
+                        );
+                    })}
                 </ul>
             </nav>
         </div>
