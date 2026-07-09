@@ -56,7 +56,7 @@ $$
 f \circ (g \circ h) = (f \circ g) \circ h
 $$
 
-![arbitrary category](/blog/lists-and-list-functions/category.png "An arbitrary category with three objects and 3 morphisms and identity morphisms")
+![arbitrary category](/blog-assets/lists-and-list-functions/category.png "An arbitrary category with three objects and 3 morphisms and identity morphisms")
 
 I want to emphasize that we haven't really put any restrictions on what objects are or even what morphisms are. I quite appreciate this about category theory because as long as I can define a structure that satisfies these constraints (though that's not always very easy to do), I can call that structure a category.
 
@@ -76,7 +76,7 @@ F(g \circ f) = Fg \circ Ff
 $$
 
 
-![functor example](/blog/lists-and-list-functions/functor.png "Commutative diagram of a functor from a category C to D ")
+![functor example](/blog-assets/lists-and-list-functions/functor.png "Commutative diagram of a functor from a category C to D ")
 
 
 In a language like Haskell, in order to declare a type to be a functor, we must define this lifting of functions 
@@ -131,7 +131,7 @@ mu :: T(T a) -> T a     # also called the 'multiplication' or 'join'
 
 These natural transformations are also subject to the monad laws, which are some commutative diagrams which must be satisfied for something to be a valid monad. It is conventional that the ==identity natural transformation==, which effectively does nothing to the functor, is represented by the symbol of the functor itself.
 
-![monad laws](/blog/lists-and-list-functions/monad_laws.png "Monad laws depicted by commutative diagrams for an arbitrary monad T")
+![monad laws](/blog-assets/lists-and-list-functions/monad_laws.png "Monad laws depicted by commutative diagrams for an arbitrary monad T")
 
 ### The List Monad
 We earlier established that `List` is an endofunctor in `Hask`. We can try to satisfy the additional constraints that monads require with our simple cons-list definition, starting with the `unit`.
@@ -187,7 +187,7 @@ More explicitly, we start with a finite set of some elements called *generators*
 ### A little more on Free Monoids
 There are more interesting ways to approach describing `List` as a free monoid. For those who are interested, one can also say that lists are the *left adjoint of the forgetful functor $U : Mon \to Set$* which takes a monoid into its underlying set, effectively "forgetting" the monoid structure that comes with the multiplication operation. The free monoid construction also comes with a ==*universal property*==, a popular concept in category theory, which contrasts the free monoid with any other monoid. The universal property of the free monoid $m$ on an arbitrary set of generators $x$ states that given the canonical injection $p: x \to Um$ that takes the set of generators in $x$ to themselves in $Um$, for *any other monoid $n$ with a function $q : x \to Un$*, there is always a unique morphism $h : m \to n$ which factors $q$ via $q = Uh \circ p$.
 
-![free monoid construction](/blog/lists-and-list-functions/free_monoid.png "Commutative diagram showing the univseral property of the free monoid")
+![free monoid construction](/blog-assets/lists-and-list-functions/free_monoid.png "Commutative diagram showing the univseral property of the free monoid")
  
  The formality in the description of the universal construction somewhat hides its more interesting implications. The function $q : x \to Un$, determines the mapping for the generators of the free monoid, and the universal construction guarantees that this would automatically and uniquely extend to a [homomorphism](https://en.wikipedia.org/wiki/Monoid#Monoid_homomorphisms) from the entire free monoid to the target monoid $n$.
 
@@ -226,7 +226,7 @@ $$
 
 Generalizing this notion, for a given endofunctor $F$ we may define the $F$-algebra defined as a morphism from $Fa \to a$ where $a$ is an object. Furthermore, we may have an entire category of algebras for a given endofunctor $F$ where objects are pairs of $(a, f)$ where $a$ is the ==carrier== type on which $F$ acts on and $f$ is the ==evaluator== or the ==structure map== of type $Fa \to a$. Morphisms in this category are actually just morphisms between carriers $f :: a \to b$ making the following commuting square due to the functoriality of $F$ meaning that $alg_{b} \circ Ff = f \circ alg_{a}$
 
-![F-algebra](/blog/lists-and-list-functions/f_algebra.png "Commutative diagram for a morphism between two F-algebras")
+![F-algebra](/blog-assets/lists-and-list-functions/f_algebra.png "Commutative diagram for a morphism between two F-algebras")
 
 Since an instance of a ring may come in various forms due to the co-products in our definition, we define the function for each kind of instance we may encounter
 ```
@@ -312,7 +312,7 @@ Thus, we conclude that `List` is the initial algebra of the `ListF` endofunctor 
 
 ### Catamorphisms
 
-![catamorphism](/blog/lists-and-list-functions/catamorphism.png "Commutative diagram showing a catamorphism for the ListF algebra")
+![catamorphism](/blog-assets/lists-and-list-functions/catamorphism.png "Commutative diagram showing a catamorphism for the ListF algebra")
 
 As mentioned before, an initial object in any category has the property that there exists a unique morphism $h: i \to x$ for any object $x$ in that category. The initial algebra for an endofunctor exhibits this same property. In our context, this initial object is `List A`, and for any other algebra for the `ListF A` functor say `(B, ListF A B -> B)`, we will have this unique morphism `h: List A -> B`. Due to the functoriality of the endofunctor, we can also go under the functor via `fmap` and apply `h` to the underlying types. Furthermore, due to the initial algebra's structure map being an isomorphism, we can actually define this function recursively due to the fact that the diagram above commutes.
 
@@ -340,7 +340,7 @@ A catamorphism on this algebra would be of the form `List A -> Int` and would re
 ### Anamorphisms
 The construction [dual](https://en.wikipedia.org/wiki/Dual_(category_theory)) to the concepts we've covered so far give us a variety of different concepts. Dual to algebras, we have [co-algebras](https://en.wikipedia.org/wiki/F-coalgebra) defined by a carrier type and a co-evaluator `(A, coalg :: A -> FA)` and through Lambek's lemma we can declare that the *terminal coalgebra for an endofunctor is an isomorphism*. The universal property of a terminal object $a$ is that for any other object $x$, there exists a unique morphism $m : x \to a$. By the same logic as before, we can construct a dual to a catamorphism known as an ==*anamorphism*== which, instead of 'destructing' an algebraic data type, will recursively 'construct' it from a given seed (from Greek ἀνά, meaning "upwards").
 
-![anamorphism](/blog/lists-and-list-functions/anamorphism.png "Commutative diagram showing an anamorphism for the ListF algebra")
+![anamorphism](/blog-assets/lists-and-list-functions/anamorphism.png "Commutative diagram showing an anamorphism for the ListF algebra")
 
 An anamorphism, parameterized by a coalgebra, would have the following signature and definition
 ```
