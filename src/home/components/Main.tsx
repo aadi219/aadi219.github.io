@@ -1,8 +1,8 @@
 import { ReactElement, useEffect, useRef, useState } from "react";
-import projectData from "../../../src/data/projects.json";
+import experienceData from "../../../src/data/experience.json";
 import Contacts from "../../components/Contacts.tsx";
 import { ScrollContext } from "../context/ScrollContext.ts";
-import Projects from "./Projects.tsx";
+import Experience from "./Experience.tsx";
 import Section from "./Section.tsx";
 import Skills from "./Skills.tsx";
 import SubNav from "./SubNav.tsx";
@@ -60,8 +60,7 @@ export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
 };
 
 const Main = (): ReactElement => {
-    let { projects } = projectData;
-    projects = projects.slice(0, 4);
+    const { experience } = experienceData;
     const [scrollToIndex, setScrollToIndex] = useState<(index: number) => void>(
         () => () => { }
     );
@@ -106,9 +105,9 @@ const Main = (): ReactElement => {
                             <h2 className="pl-2">Skills & Technologies</h2>
                             <Skills />
                         </Section>
-                        <Section id="Projects">
-                            <h2 className="pl-2">Projects</h2>
-                            <Projects projects={projects} />
+                        <Section id="Experience">
+                            <h2 className="pl-2">Experience</h2>
+                            <Experience experience={experience} />
                         </Section>
                     </RightPane>
                 </div>
