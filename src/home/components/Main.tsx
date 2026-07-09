@@ -1,13 +1,12 @@
-import { AnimatePresence, motion, useScroll } from "motion/react";
 import { ReactElement, useEffect, useRef, useState } from "react";
-import projectData from "../../../src/data/projects.json";
+import experienceData from "../../../src/data/experience.json";
 import Contacts from "../../components/Contacts.tsx";
 import { ScrollContext } from "../context/ScrollContext.ts";
-import Projects from "./Projects.tsx";
+import Experience from "./Experience.tsx";
 import Section from "./Section.tsx";
 import Skills from "./Skills.tsx";
 import SubNav from "./SubNav.tsx";
-import WavyBackground from "./WavyBackground.tsx";
+import TopographicBackground from "./TopographicBackground.tsx";
 import TypingAnimation from "./TypingAnimation.tsx";
 
 export const LeftPane = ({ children }: { children: ReactElement[] }) => {
@@ -24,81 +23,53 @@ interface RightPaneProps {
 }
 
 export const RightPane = ({ children, setScrollToIndex }: RightPaneProps) => {
-    const paneRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        container: paneRef,
-        offset: ["start start", "end end"]
-    });
-    const [visibleIndex, setVisibleIndex] = useState(0);
+    const paneRef = useRef<HTMLDivElement>(null);
+    const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const scrollToIndex = (index: number) => {
-        if (paneRef.current) {
-            const pane = paneRef.current as HTMLElement;
-            const scrollHeight = pane.scrollHeight - pane.clientHeight;
-            const targetScroll = (index / (children.length - 1)) * scrollHeight;
-            pane.scrollTo({
-                top: targetScroll,
-                behavior: "smooth"
-            });
+        const section = sectionRefs.current[index];
+        const pane = paneRef.current;
+        if (section && pane) {
+            pane.scrollTo({ top: section.offsetTop, behavior: "smooth" });
         }
     };
 
     useEffect(() => {
         setScrollToIndex(() => scrollToIndex);
-        const handleScroll = () => {
-            const index = Math.round(
-                scrollYProgress.get() * (children.length - 1)
-            );
-            setVisibleIndex(index);
-        };
-        const unsubscribe = scrollYProgress.on("change", handleScroll);
-        return () => unsubscribe();
-    }, [setScrollToIndex, scrollYProgress.get(), children.length]);
+    }, [setScrollToIndex]);
 
     return (
         <div
             ref={paneRef}
             id="rightPane"
-            className="relative w-full h-screen lg:pr-10 overflow-y-auto hide-scroll"
+            className="relative w-full h-full lg:pr-10 overflow-y-auto hide-scroll"
         >
-            <div className="min-h-[300vh]">
-                <AnimatePresence mode="wait">
-                    {children.map(
-                        (child, index) =>
-                            index === visibleIndex && (
-                                <motion.div
-                                    key={index}
-                                    className="sticky top-0 h-screen text-start"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -50 }}
-                                    transition={{
-                                        duration: 0.5,
-                                        ease: "easeInOut"
-                                    }}
-                                >
-                                    {child}
-                                </motion.div>
-                            )
-                    )}
-                </AnimatePresence>
-            </div>
+            {children.map((child, index) => (
+                <div
+                    key={index}
+                    ref={(el) => {
+                        sectionRefs.current[index] = el;
+                    }}
+                    className="text-start pb-2"
+                >
+                    {child}
+                </div>
+            ))}
         </div>
     );
 };
 
 const Main = (): ReactElement => {
-    let { projects } = projectData;
-    projects = projects.slice(0, 4);
+    const { experience } = experienceData;
     const [scrollToIndex, setScrollToIndex] = useState<(index: number) => void>(
-        () => () => {}
+        () => () => { }
     );
     return (
         <ScrollContext.Provider value={{ scrollToIndex }}>
-            <div className="relative w-full h-screen overflow-hidden">
+            <div className="relative w-full h-full overflow-hidden">
                 {/* Background layer */}
                 <div className="absolute overflow-hidden inset-0 z-0">
-                    <WavyBackground />
+                    <TopographicBackground />
                 </div>
 
                 {/* Content layer */}
@@ -107,8 +78,8 @@ const Main = (): ReactElement => {
                         <h1 className="text-5xl font-bold heading text-highlight-blue text-nowrap font-heading">
                             Aadi Badola
                         </h1>
-                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer",  "Data Scientist"]} />
-                            <Contacts className="pt-5 flex gap-4 lg:hidden" />
+                        <TypingAnimation values={["Software Engineer", "Full-Stack Developer", "AI Researcher"]} />
+                        <Contacts className="pt-5 flex gap-4 lg:hidden" />
                         <SubNav />
                     </LeftPane>
                     <RightPane setScrollToIndex={setScrollToIndex}>
@@ -117,24 +88,26 @@ const Main = (): ReactElement => {
                             <p className="lg:w-[86%] text-start text-[0.9em] sm:text-[1em] text-highlight-blue">
                                 I am a Software Engineer passionate about Machine Learning & Data Science.
                                 With a strong foundation in a variety of development stacks and design paradigms,
-                                I specialize in desigining and developing scalable, high-performance applications.
+                                I specialize in desigining and developing innovative software solutions.
                                 <br className="mb-3" />
-								Currently, I'm working as a <b className="text-highlight-teal">Software Developer</b> at Antek Logistics, contributing to the
-								development of Automation Workflows to streamline daily operations, replacing manual processes with efficient, event-driven systems.
-                                <br className="mb-3" />
-                                I'm also working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
-                                at George Brown College, researching the industry applications of Deep Learning in
-                                Computer Vision and contributing to the design and development of a robust AI-powered system that will
+                                Currently, I'm working as a <b className="text-highlight-teal">Research Assistant</b>, under the Office of Research & Innovation
+                                at <b>George Brown Polytechnic</b>, researching the industry applications of Artificial Intelligence & Computer Vision,
+                                contributing to the design and development of an AI-powered system that will
                                 enhance Quality Assurance and improve efficiency in the manufacturing pipeline.
+                                <br className="mb-3" />
+                                I have previously worked <b className="text-highlight-teal">Software Developer</b> at <b>Antek Logistics</b>, contributing to the
+                                development and maintenance of internal automation tools and worklfows to streamline daily operations, replacing manual processes with efficient, event-driven systems.
+                                I was also a core, full-stack developer of the <b>Claro Customs AI</b> platform where I maintained and extended database entities, REST APIs, intergations with
+                                third-party services, and long-running background processes; automating shipment management, tracking, and customs compliance.
                             </p>
+                        </Section>
+                        <Section id="Experience">
+                            <h2 className="pl-2">Experience</h2>
+                            <Experience experience={experience} />
                         </Section>
                         <Section id="Skills">
                             <h2 className="pl-2">Skills & Technologies</h2>
                             <Skills />
-                        </Section>
-                        <Section id="Projects">
-                            <h2 className="pl-2">Projects</h2>
-                            <Projects projects={projects} />
                         </Section>
                     </RightPane>
                 </div>

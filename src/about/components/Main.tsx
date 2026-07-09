@@ -1,3 +1,5 @@
+import { RESUME_URL } from "../../data/constants";
+
 const Main = () => {
     return (
         <div className="flex flex-col lg:flex-row xl:px-40 gap-8 md:relative md:top-[40px] overflow-scroll lg:overflow-hidden">
@@ -9,7 +11,7 @@ const Main = () => {
                 />
                 <div className="mx-auto">
                     <a
-                        href="https://drive.google.com/file/d/1sg_81CMjQP5hCaR5_TlrEPSvJIhWKCW8/view?usp=sharing"
+                        href={RESUME_URL}
                         target="_blank"
                         className="btn-fill p-3"
                     >

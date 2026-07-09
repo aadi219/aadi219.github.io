@@ -1,0 +1,52 @@
+{
+    "experience": [
+        {
+            "role": "Research Assistant",
+            "company": "George Brown College",
+            "startDate": "2025",
+            "endDate": "Present",
+            "description": "",
+            "details": [
+				"Exploring and designing Deep Learning systems for improving quality assurance in manufacturing pipelines",
+                "Designed and implemented a CNN-based siamese encoder for generalized similarity based anomaly detection",
+                "Assisted in the development of a full-stack solution with hybrid deployments for cloud-based model fine-tuning and low latency, on-site inference"
+            ]
+        },
+        {
+            "role": "Software Developer",
+            "company": "Antek Logistics - Claro Customs AI",
+            "startDate": "2025",
+            "endDate": "2026",
+            "description": "",
+            "details": [
+                "Extended and maintained the Claro Customs AI web platform working as a full-stack developer and core maintainer",
+                "Implemented robust compliance validation and customs automation pipelines integrating third-party services and consolidating data coming from JSON and SOAP XML APIs into a unified database schema",
+                "Implemented and maintained internal automation workflows spanning the entire shipment lifecylce handling both Canadian and US customs processes",
+                "Improved operations efficiency by automating end-to-end shipment management and data extraction, handling 70-100+ documents daily"
+            ]
+        },
+        {
+            "role": "Research Assistant",
+            "company": "George Brown College",
+            "startDate": "2025",
+            "endDate": "2025",
+            "description": "",
+            "details": [
+                "Designed and developed a system for workflow generation using natural language integrated with the capabilities of a CRM, enabling the creation of custom workflows based on user requirements",
+                "Researched and designed mechanisms for secure and constrained interaction with CRM software emphasizing consistent generated workflows aligned with user requirements",
+                "Assisted in the development of a customizable site assistant utilizing small language models with RAG capabilities"
+            ]
+        },
+        {
+            "role": "Peer Tutor & Teacher's Assistant",
+            "company": "George Brown College",
+            "startDate": "2022",
+            "endDate": "2024",
+            "description": "",
+            "details": [
+                "Conducted 700+ hours of one-on-one and group tutoring sessions",
+                "Assisted professors during in-person lectures and labs"
+            ]
+        }
+    ]
+}

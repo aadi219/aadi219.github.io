@@ -1,0 +1,176 @@
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
+import { AnimatePresence, motion, useAnimation, useInView } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { RESUME_URL } from "../../data/constants";
+import ExperienceData from "../../data/ExperienceData";
+
+const textShadow = "0 1px 8px rgba(22, 22, 29, 0.85)";
+
+const Experience = ({
+    experience,
+    variants
+}: {
+    experience: ExperienceData;
+    variants: any;
+}) => {
+    const [expanded, setExpanded] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
+        const update = () => setIsDesktop(mql.matches);
+        update();
+        mql.addEventListener("change", update);
+        return () => mql.removeEventListener("change", update);
+    }, []);
+
+    return (
+        <motion.div
+            variants={variants}
+            onMouseEnter={() => isDesktop && setExpanded(true)}
+            onMouseLeave={() => isDesktop && setExpanded(false)}
+            className="relative pl-6 pb-6 last:pb-1"
+        >
+            <span
+                className="absolute left-0 top-[0.4rem] w-2.5 h-2.5 rounded-full transition-colors duration-300"
+                style={{
+                    backgroundColor: expanded
+                        ? "var(--highlight-teal)"
+                        : "var(--bg-med)"
+                }}
+            />
+            <button
+                type="button"
+                onClick={() => !isDesktop && setExpanded((prev) => !prev)}
+                aria-expanded={expanded}
+                className={`w-full text-left ${isDesktop ? "cursor-default" : "cursor-pointer"}`}
+            >
+                <div className="flex justify-between items-baseline gap-2">
+                    <h4
+                        className="font-extrabold text-md lg:text-lg text-highlight-teal font-main"
+                        style={{ textShadow }}
+                    >
+                        {experience.role}
+                    </h4>
+                    <div className="flex items-center gap-2 shrink-0">
+                        <span
+                            className="font-main text-xs lg:text-sm text-highlight-blue whitespace-nowrap"
+                            style={{ textShadow }}
+                        >
+                            {experience.startDate} — {experience.endDate}
+                        </span>
+                        <motion.span
+                            animate={{ rotate: expanded ? 180 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex text-highlight-blue"
+                        >
+                            <ExpandMoreRoundedIcon fontSize="small" />
+                        </motion.span>
+                    </div>
+                </div>
+                <p
+                    className="font-main text-sm lg:text-md italic text-highlight-blue"
+                    style={{ textShadow }}
+                >
+                    {experience.company}
+                </p>
+                {experience.description && (
+                    <p
+                        className="font-main text-sm lg:text-md text-highlight-blue"
+                        style={{ textShadow }}
+                    >
+                        {experience.description}
+                    </p>
+                )}
+            </button>
+            <AnimatePresence initial={false}>
+                {expanded && (
+                    <motion.div
+                        key="details"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        style={{ overflow: "hidden" }}
+                    >
+                        <ul className="flex flex-col gap-1 pt-2 pl-4">
+                            {experience.details.map((point, idx) => (
+                                <li
+                                    key={idx}
+                                    className="font-main text-sm lg:text-md text-highlight-blue"
+                                    style={{ textShadow }}
+                                >
+                                    {point}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
+    );
+};
+
+const ExperienceList = ({ experience }: { experience: ExperienceData[] }) => {
+    const controls = useAnimation();
+    const ref = useRef(null);
+    const isInView = useInView(ref);
+
+    useEffect(() => {
+        if (isInView) {
+            controls.start("visible");
+        }
+    }, [controls, isInView]);
+
+    const createVariants = (delay: number) => ({
+        hidden: {
+            opacity: 0,
+            x: -150,
+            filter: "blur(4px)"
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+            transition: {
+                x: { duration: 0.6, delay },
+                opacity: { duration: 1, delay },
+                filter: { duration: 0.4, delay },
+                ease: "easeOut"
+            }
+        }
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            className="relative flex flex-col mt-2 mb-4"
+        >
+            <div className="absolute left-[4px] top-2 bottom-8 w-px bg-highlight-teal/20" />
+            {experience.map((item, idx) => (
+                <Experience
+                    variants={createVariants(idx * 0.2)}
+                    key={idx}
+                    experience={item}
+                />
+            ))}
+            <div className="lg:flex justify-start hidden pl-6">
+                <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    id="experience-button"
+                    className="group relative w-fit font-main text-lg font-semibold lg:text-md text-highlight-blue hover:text-highlight-teal transition-colors duration-300"
+                    style={{ textShadow }}
+                >
+					View my Resume 
+                    <span className="absolute left-0 -bottom-0.5 h-px w-full bg-highlight-teal origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                </a>
+            </div>
+        </motion.div>
+    );
+};
+
+export default ExperienceList;
