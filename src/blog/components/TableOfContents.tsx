@@ -70,7 +70,10 @@ const TableOfContents = ({
 
     return (
         <div className="hidden lg:block lg:absolute lg:top-0 lg:bottom-0 lg:left-full lg:ml-6 lg:w-44 xl:w-52 text-left lg:pl-3 md:pl-1">
-            <nav aria-label="Table of contents" className="lg:sticky lg:top-28">
+            <nav
+                aria-label="Table of contents"
+                className="lg:sticky lg:top-20 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto"
+            >
                 <p className="font-heading text-xs tracking-widest uppercase text-highlight-blue mb-3">
                     On this page
                 </p>
