@@ -1,4 +1,3 @@
-import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import { AnimatePresence, motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -159,14 +158,16 @@ const ExperienceList = ({ experience }: { experience: ExperienceData[] }) => {
                 />
             ))}
             <div className="lg:flex justify-start hidden pl-6">
-                <a href={RESUME_URL} target="_blank" rel="noreferrer">
-                    <div
-                        id="experience-button"
-                        className="w-fit gap-2 bg-bg-med transition-colors duration-300 rounded-md items-center py-2 px-4 flex justify-between"
-                    >
-                        <p>See the rest on my resume</p>
-                        <ArrowOutwardRoundedIcon />
-                    </div>
+                <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    id="experience-button"
+                    className="group relative w-fit font-main text-lg font-semibold lg:text-md text-highlight-blue hover:text-highlight-teal transition-colors duration-300"
+                    style={{ textShadow }}
+                >
+					View my Resume 
+                    <span className="absolute left-0 -bottom-0.5 h-px w-full bg-highlight-teal origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
                 </a>
             </div>
         </motion.div>
