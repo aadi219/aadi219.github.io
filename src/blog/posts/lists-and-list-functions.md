@@ -2,6 +2,7 @@
 title: "Lists and List Functions, from various Categorical perspectives"
 date: "2026-07-09"
 description: "A categorical survey of Cons-Lists and the list functions which emerge from various categorical constructions"
+image: "/assets/img/thumbnails/lists-and-list-functions.png"
 tags: ["category theory", "functional programming"]
 ---
 
